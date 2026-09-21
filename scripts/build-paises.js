@@ -1,5 +1,6 @@
 // Genera public/data/paises.json y paises.geojson (PLAN.md, Fase 2).
 // Uso: node scripts/build-paises.js   (descarga las fuentes a scripts/.cache la primera vez)
+import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -89,7 +90,43 @@ for (const [code, polys] of byIso) {
 features.sort((a, b) => a.properties.iso_a3.localeCompare(b.properties.iso_a3))
 
 writeFileSync(join(out, 'paises.json'), JSON.stringify(paises, null, 1) + '\n')
-writeFileSync(join(out, 'paises.geojson'), JSON.stringify({ type: 'FeatureCollection', features }))
+// Simplificación para el globo (rendimiento en iPhone): sin islotes menores que MIN_ISLA_KM2 (salvo el polígono
+// mayor de cada país, para que ninguno desaparezca) y con vértices reducidos.
+const MIN_ISLA_KM2 = 150
+const SIMPLIFICAR = '12%'
+const areaKm2 = (ring) => {
+  let a = 0
+  for (let i = 0; i < ring.length - 1; i++) a += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]
+  const lat = ring.reduce((s, c) => s + c[1], 0) / ring.length
+  return Math.abs(a / 2) * 111.32 * 111.32 * Math.cos((lat * Math.PI) / 180)
+}
+for (const f of features) {
+  const conArea = f.geometry.coordinates.map((poly) => ({ poly, km2: areaKm2(poly[0]) }))
+  const mayor = Math.max(...conArea.map((x) => x.km2))
+  f.geometry.coordinates = conArea.filter((x) => x.km2 >= MIN_ISLA_KM2 || x.km2 === mayor).map((x) => x.poly)
+}
+const tmp = join(cache, 'paises_raw.geojson')
+writeFileSync(tmp, JSON.stringify({ type: 'FeatureCollection', features }))
+execFileSync(
+  join(root, 'node_modules/.bin/mapshaper'),
+  [tmp, '-simplify', SIMPLIFICAR, 'keep-shapes',
+   '-o', join(out, 'paises.geojson'), 'format=geojson', 'precision=0.01', 'force'],
+  { stdio: ['ignore', 'ignore', 'inherit'] },
+)
+
+// globe.gl (d3-geo) espera exteriores en sentido horario y huecos antihorarios; mapshaper los deja al revés.
+const signedArea = (r) => r.reduce((a, c, i) => (i < r.length - 1 ? a + c[0] * r[i + 1][1] - r[i + 1][0] * c[1] : a), 0)
+const simplificado = JSON.parse(readFileSync(join(out, 'paises.geojson'), 'utf8'))
+for (const f of simplificado.features) {
+  const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates
+  for (const poly of polys) {
+    poly.forEach((ring, i) => {
+      const horario = signedArea(ring) < 0
+      if (horario !== (i === 0)) ring.reverse()
+    })
+  }
+}
+writeFileSync(join(out, 'paises.geojson'), JSON.stringify(simplificado))
 
 const sinPoligono = paises.filter((p) => !byIso.has(p.iso_a3)).map((p) => p.iso_a3)
 console.log(`paises.json: ${paises.length} entradas`)

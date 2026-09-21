@@ -3,7 +3,7 @@ import Globe from 'globe.gl'
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim()
 
 export async function renderGlobe(container) {
-  container.innerHTML = `<div id="globe"></div><p id="globe-label" aria-live="polite">Toca un país</p>`
+  container.innerHTML = `<div id="globe"></div><p id="globe-label" aria-live="polite">Cargando globo…</p>`
   const el = container.querySelector('#globe')
   const label = container.querySelector('#globe-label')
 
@@ -26,6 +26,12 @@ export async function renderGlobe(container) {
     .onPolygonClick((f) => {
       label.textContent = nombres.get(f.properties.iso_a3) ?? f.properties.iso_a3
     })
+
+  // iPhone: densidad ×3 multiplica el coste de render; con 2 sigue nítido y va bastante más fluido.
+  globe.renderer().setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  globe.onGlobeReady(() => {
+    label.textContent = 'Toca un país'
+  })
 
   const controls = globe.controls()
   controls.minDistance = 130
