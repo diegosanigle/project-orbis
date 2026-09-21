@@ -127,23 +127,23 @@ Feedback funcional únicamente. **Nunca para el estado de un país.**
 
 ## 3. Tipografía
 
-**Display / marca:** serif de alto contraste con itálica. Propuesta: **`Bodoni Moda`** (Google Fonts). Alternativas: `Instrument Serif` (más seco), `Playfair Display` (el más usado, y por eso el más reconocible como plantilla).
+**Display / marca:** serif con itálica de carácter seco. Familia: **`Instrument Serif`** (Google Fonts). Alternativa: `Bodoni Moda` (más contraste, más clásico).
 
-**Interfaz y datos:** **`Inter`** variable, por sus cifras tabulares fiables. Si se prefiere otra familia por carácter, **verificar antes que incluye `tabular-nums`**.
+**Interfaz y datos:** **`Geist`** variable (Google Fonts), por su claridad en pantalla y cifras tabulares fiables. Si se cambia la familia, **verificar antes que incluye `tabular-nums`**.
 
 Todo dato numérico con `font-variant-numeric: tabular-nums` (clase `.num`). Innegociable.
 
 | Rol | Token | Familia | Tamaño | Peso | Interlineado | Tracking |
 |---|---|---|---|---|---|---|
-| Wordmark | `.t-mark` | Bodoni Moda *italic* | — | 500 | 1 | 0 |
-| Display (cifra protagonista) | `.t-display` | Bodoni Moda | 3.5rem | 400 | 1 | 0 |
-| Título de pantalla | `.t-h1` | Bodoni Moda *italic* | 1.75rem | 500 | 1.15 | 0 |
-| Nombre de país (ficha) | `.t-country` | Bodoni Moda *italic* | 2.25rem | 500 | 1.1 | 0 |
-| H2 | `.t-h2` | Inter | 1.25rem | 600 | 1.25 | -0.01em |
-| Fila de lista | `.t-row` | Inter | 1rem | 500 | 1.4 | 0 |
-| Cuerpo | `.t-body` | Inter | 1rem | 400 | 1.5 | 0 |
-| Small | `.t-sm` | Inter | 0.875rem | 400 | 1.4 | 0 |
-| Etiqueta | `.t-label` | Inter | 0.6875rem | 600 | 1.3 | **0.12em**, mayúsculas |
+| Wordmark | `.t-mark` | Instrument Serif *italic* | — | 400 | 1 | 0 |
+| Display (cifra protagonista) | `.t-display` | Instrument Serif | 3.5rem | 400 | 1 | 0 |
+| Título de pantalla | `.t-h1` | Instrument Serif *italic* | 1.75rem | 400 | 1.15 | 0 |
+| Nombre de país (ficha) | `.t-country` | Instrument Serif *italic* | 2.25rem | 400 | 1.1 | 0 |
+| H2 | `.t-h2` | Geist | 1.25rem | 600 | 1.25 | -0.01em |
+| Fila de lista | `.t-row` | Geist | 1rem | 500 | 1.4 | 0 |
+| Cuerpo | `.t-body` | Geist | 1rem | 400 | 1.5 | 0 |
+| Small | `.t-sm` | Geist | 0.875rem | 400 | 1.4 | 0 |
+| Etiqueta | `.t-label` | Geist | 0.6875rem | 600 | 1.3 | **0.12em**, mayúsculas |
 
 **Dónde aparece el serif, y solo ahí:** wordmark, cifra protagonista, título de pantalla y nombre de país. En ningún otro sitio. Si aparece en un label de formulario o en una fila de lista, está mal aplicado.
 
@@ -317,8 +317,8 @@ Si se aborda, la solución por defecto —fondo espacial negro— es justo la qu
 
 1. **Cabecera visual de la ficha de país.** La maqueta usa una fotografía del lugar, lo que implicaría un asset por país (249) o una API de imágenes. Con las fotos fuera de la v1, las opciones son: (a) banda de color plano derivada de la paleta, (b) el fragmento del mapa de ese país ampliado, (c) sin cabecera, la card a pantalla completa. **La (b) es la única que aporta información en vez de decoración.**
 2. **Onboarding.** La maqueta muestra un carrusel de tres pantallas. Para una app de un solo usuario que además la ha construido, un onboarding es coste sin destinatario. Propuesta: conservar la pantalla del splash como **fondo de la pantalla de login** y eliminar el carrusel.
-3. **Familia display:** `Bodoni Moda` como propuesta; decidir viéndola con el wordmark "Orbis" real.
-4. **Familia de interfaz:** `Inter` por seguridad en cifras tabulares; verificar `tabular-nums` si se cambia.
+3. **Familia display:** `Instrument Serif` como decisión tomada. Alternativa documentada: `Bodoni Moda` (mayor contraste, carácter más clásico).
+4. **Familia de interfaz:** `Geist` como decisión tomada. Verificar `tabular-nums` si se cambia en el futuro.
 5. **Trama de la escala:** diagonales es la propuesta. Se decide mirando países pequeños, no grandes — el caso difícil es Luxemburgo, no Brasil.
 6. **Relieve del globo:** con sombreado al 8–10% o completamente plano. Decidir sobre el dispositivo real.
 7. **Logotipo:** "Orbis" en `.t-mark` funciona como wordmark. La estrella de cuatro puntas puede evolucionar a marca gráfica.
