@@ -1,10 +1,12 @@
 import { supabase } from './lib/supabase.js'
 import { renderLogin } from './views/login.js'
+import { renderGlobe } from './views/globe.js'
 
 const app = document.getElementById('app')
 
-function renderHome() {
-  app.innerHTML = `<main><h1>Orbis</h1><button id="logout">Cerrar sesión</button></main>`
+async function renderHome() {
+  await renderGlobe(app)
+  app.insertAdjacentHTML('beforeend', `<button id="logout">Cerrar sesión</button>`)
   app.querySelector('#logout').addEventListener('click', () => supabase.auth.signOut())
 }
 
