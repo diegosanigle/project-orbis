@@ -93,7 +93,7 @@ writeFileSync(join(out, 'paises.json'), JSON.stringify(paises, null, 1) + '\n')
 // Simplificación para el globo (rendimiento en iPhone): sin islotes menores que MIN_ISLA_KM2 (salvo el polígono
 // mayor de cada país, para que ninguno desaparezca) y con vértices reducidos.
 const MIN_ISLA_KM2 = 150
-const SIMPLIFICAR = '12%'
+const SIMPLIFICAR = '20%'
 const areaKm2 = (ring) => {
   let a = 0
   for (let i = 0; i < ring.length - 1; i++) a += ring[i][0] * ring[i + 1][1] - ring[i + 1][0] * ring[i][1]
@@ -109,7 +109,7 @@ const tmp = join(cache, 'paises_raw.geojson')
 writeFileSync(tmp, JSON.stringify({ type: 'FeatureCollection', features }))
 execFileSync(
   join(root, 'node_modules/.bin/mapshaper'),
-  [tmp, '-simplify', SIMPLIFICAR, 'keep-shapes',
+  [tmp, '-simplify', SIMPLIFICAR, 'weighting=1', 'keep-shapes',
    '-o', join(out, 'paises.geojson'), 'format=geojson', 'precision=0.01', 'force'],
   { stdio: ['ignore', 'ignore', 'inherit'] },
 )
