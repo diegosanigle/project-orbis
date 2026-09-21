@@ -1,0 +1,1745 @@
+[
+ {
+  "iso_a3": "ABW",
+  "iso_a2": "AW",
+  "nombre_es": "Aruba",
+  "continente": "América del Norte",
+  "area_km2": 180
+ },
+ {
+  "iso_a3": "AFG",
+  "iso_a2": "AF",
+  "nombre_es": "Afganistán",
+  "continente": "Asia",
+  "area_km2": 652230
+ },
+ {
+  "iso_a3": "AGO",
+  "iso_a2": "AO",
+  "nombre_es": "Angola",
+  "continente": "África",
+  "area_km2": 1246700
+ },
+ {
+  "iso_a3": "AIA",
+  "iso_a2": "AI",
+  "nombre_es": "Anguilla",
+  "continente": "América del Norte",
+  "area_km2": 91
+ },
+ {
+  "iso_a3": "ALA",
+  "iso_a2": "AX",
+  "nombre_es": "Alandia",
+  "continente": "Europa",
+  "area_km2": 1580
+ },
+ {
+  "iso_a3": "ALB",
+  "iso_a2": "AL",
+  "nombre_es": "Albania",
+  "continente": "Europa",
+  "area_km2": 28748
+ },
+ {
+  "iso_a3": "AND",
+  "iso_a2": "AD",
+  "nombre_es": "Andorra",
+  "continente": "Europa",
+  "area_km2": 468
+ },
+ {
+  "iso_a3": "ARE",
+  "iso_a2": "AE",
+  "nombre_es": "Emiratos Árabes Unidos",
+  "continente": "Asia",
+  "area_km2": 83600
+ },
+ {
+  "iso_a3": "ARG",
+  "iso_a2": "AR",
+  "nombre_es": "Argentina",
+  "continente": "América del Sur",
+  "area_km2": 2780400
+ },
+ {
+  "iso_a3": "ARM",
+  "iso_a2": "AM",
+  "nombre_es": "Armenia",
+  "continente": "Asia",
+  "area_km2": 29743
+ },
+ {
+  "iso_a3": "ASM",
+  "iso_a2": "AS",
+  "nombre_es": "Samoa Americana",
+  "continente": "Oceanía",
+  "area_km2": 199
+ },
+ {
+  "iso_a3": "ATA",
+  "iso_a2": "AQ",
+  "nombre_es": "Antártida",
+  "continente": "Antártida",
+  "area_km2": 14000000
+ },
+ {
+  "iso_a3": "ATF",
+  "iso_a2": "TF",
+  "nombre_es": "Tierras Australes y Antárticas Francesas",
+  "continente": "Antártida",
+  "area_km2": 7747
+ },
+ {
+  "iso_a3": "ATG",
+  "iso_a2": "AG",
+  "nombre_es": "Antigua y Barbuda",
+  "continente": "América del Norte",
+  "area_km2": 442
+ },
+ {
+  "iso_a3": "AUS",
+  "iso_a2": "AU",
+  "nombre_es": "Australia",
+  "continente": "Oceanía",
+  "area_km2": 7692024
+ },
+ {
+  "iso_a3": "AUT",
+  "iso_a2": "AT",
+  "nombre_es": "Austria",
+  "continente": "Europa",
+  "area_km2": 83871
+ },
+ {
+  "iso_a3": "AZE",
+  "iso_a2": "AZ",
+  "nombre_es": "Azerbaiyán",
+  "continente": "Asia",
+  "area_km2": 86600
+ },
+ {
+  "iso_a3": "BDI",
+  "iso_a2": "BI",
+  "nombre_es": "Burundi",
+  "continente": "África",
+  "area_km2": 27834
+ },
+ {
+  "iso_a3": "BEL",
+  "iso_a2": "BE",
+  "nombre_es": "Bélgica",
+  "continente": "Europa",
+  "area_km2": 30528
+ },
+ {
+  "iso_a3": "BEN",
+  "iso_a2": "BJ",
+  "nombre_es": "Benín",
+  "continente": "África",
+  "area_km2": 112622
+ },
+ {
+  "iso_a3": "BES",
+  "iso_a2": "BQ",
+  "nombre_es": "Caribe Neerlandés",
+  "continente": "América del Norte",
+  "area_km2": 328
+ },
+ {
+  "iso_a3": "BFA",
+  "iso_a2": "BF",
+  "nombre_es": "Burkina Faso",
+  "continente": "África",
+  "area_km2": 272967
+ },
+ {
+  "iso_a3": "BGD",
+  "iso_a2": "BD",
+  "nombre_es": "Bangladesh",
+  "continente": "Asia",
+  "area_km2": 147570
+ },
+ {
+  "iso_a3": "BGR",
+  "iso_a2": "BG",
+  "nombre_es": "Bulgaria",
+  "continente": "Europa",
+  "area_km2": 110879
+ },
+ {
+  "iso_a3": "BHR",
+  "iso_a2": "BH",
+  "nombre_es": "Bahrein",
+  "continente": "Asia",
+  "area_km2": 765
+ },
+ {
+  "iso_a3": "BHS",
+  "iso_a2": "BS",
+  "nombre_es": "Bahamas",
+  "continente": "América del Norte",
+  "area_km2": 13943
+ },
+ {
+  "iso_a3": "BIH",
+  "iso_a2": "BA",
+  "nombre_es": "Bosnia y Herzegovina",
+  "continente": "Europa",
+  "area_km2": 51209
+ },
+ {
+  "iso_a3": "BLM",
+  "iso_a2": "BL",
+  "nombre_es": "San Bartolomé",
+  "continente": "América del Norte",
+  "area_km2": 21
+ },
+ {
+  "iso_a3": "BLR",
+  "iso_a2": "BY",
+  "nombre_es": "Bielorrusia",
+  "continente": "Europa",
+  "area_km2": 207600
+ },
+ {
+  "iso_a3": "BLZ",
+  "iso_a2": "BZ",
+  "nombre_es": "Belice",
+  "continente": "América del Norte",
+  "area_km2": 22966
+ },
+ {
+  "iso_a3": "BMU",
+  "iso_a2": "BM",
+  "nombre_es": "Bermudas",
+  "continente": "América del Norte",
+  "area_km2": 54
+ },
+ {
+  "iso_a3": "BOL",
+  "iso_a2": "BO",
+  "nombre_es": "Bolivia",
+  "continente": "América del Sur",
+  "area_km2": 1098581
+ },
+ {
+  "iso_a3": "BRA",
+  "iso_a2": "BR",
+  "nombre_es": "Brasil",
+  "continente": "América del Sur",
+  "area_km2": 8515767
+ },
+ {
+  "iso_a3": "BRB",
+  "iso_a2": "BB",
+  "nombre_es": "Barbados",
+  "continente": "América del Norte",
+  "area_km2": 430
+ },
+ {
+  "iso_a3": "BRN",
+  "iso_a2": "BN",
+  "nombre_es": "Brunei",
+  "continente": "Asia",
+  "area_km2": 5765
+ },
+ {
+  "iso_a3": "BTN",
+  "iso_a2": "BT",
+  "nombre_es": "Bután",
+  "continente": "Asia",
+  "area_km2": 38394
+ },
+ {
+  "iso_a3": "BVT",
+  "iso_a2": "BV",
+  "nombre_es": "Isla Bouvet",
+  "continente": "Antártida",
+  "area_km2": 49
+ },
+ {
+  "iso_a3": "BWA",
+  "iso_a2": "BW",
+  "nombre_es": "Botswana",
+  "continente": "África",
+  "area_km2": 582000
+ },
+ {
+  "iso_a3": "CAF",
+  "iso_a2": "CF",
+  "nombre_es": "República Centroafricana",
+  "continente": "África",
+  "area_km2": 622984
+ },
+ {
+  "iso_a3": "CAN",
+  "iso_a2": "CA",
+  "nombre_es": "Canadá",
+  "continente": "América del Norte",
+  "area_km2": 9984670
+ },
+ {
+  "iso_a3": "CCK",
+  "iso_a2": "CC",
+  "nombre_es": "Islas Cocos o Islas Keeling",
+  "continente": "Oceanía",
+  "area_km2": 14
+ },
+ {
+  "iso_a3": "CHE",
+  "iso_a2": "CH",
+  "nombre_es": "Suiza",
+  "continente": "Europa",
+  "area_km2": 41284
+ },
+ {
+  "iso_a3": "CHL",
+  "iso_a2": "CL",
+  "nombre_es": "Chile",
+  "continente": "América del Sur",
+  "area_km2": 756102
+ },
+ {
+  "iso_a3": "CHN",
+  "iso_a2": "CN",
+  "nombre_es": "China",
+  "continente": "Asia",
+  "area_km2": 9706961
+ },
+ {
+  "iso_a3": "CIV",
+  "iso_a2": "CI",
+  "nombre_es": "Costa de Marfil",
+  "continente": "África",
+  "area_km2": 322463
+ },
+ {
+  "iso_a3": "CMR",
+  "iso_a2": "CM",
+  "nombre_es": "Camerún",
+  "continente": "África",
+  "area_km2": 475442
+ },
+ {
+  "iso_a3": "COD",
+  "iso_a2": "CD",
+  "nombre_es": "Congo (Rep. Dem.)",
+  "continente": "África",
+  "area_km2": 2344858
+ },
+ {
+  "iso_a3": "COG",
+  "iso_a2": "CG",
+  "nombre_es": "Congo",
+  "continente": "África",
+  "area_km2": 342000
+ },
+ {
+  "iso_a3": "COK",
+  "iso_a2": "CK",
+  "nombre_es": "Islas Cook",
+  "continente": "Oceanía",
+  "area_km2": 236
+ },
+ {
+  "iso_a3": "COL",
+  "iso_a2": "CO",
+  "nombre_es": "Colombia",
+  "continente": "América del Sur",
+  "area_km2": 1141748
+ },
+ {
+  "iso_a3": "COM",
+  "iso_a2": "KM",
+  "nombre_es": "Comoras",
+  "continente": "África",
+  "area_km2": 1862
+ },
+ {
+  "iso_a3": "CPV",
+  "iso_a2": "CV",
+  "nombre_es": "Cabo Verde",
+  "continente": "África",
+  "area_km2": 4033
+ },
+ {
+  "iso_a3": "CRI",
+  "iso_a2": "CR",
+  "nombre_es": "Costa Rica",
+  "continente": "América del Norte",
+  "area_km2": 51100
+ },
+ {
+  "iso_a3": "CUB",
+  "iso_a2": "CU",
+  "nombre_es": "Cuba",
+  "continente": "América del Norte",
+  "area_km2": 109884
+ },
+ {
+  "iso_a3": "CUW",
+  "iso_a2": "CW",
+  "nombre_es": "Curazao",
+  "continente": "América del Norte",
+  "area_km2": 444
+ },
+ {
+  "iso_a3": "CXR",
+  "iso_a2": "CX",
+  "nombre_es": "Isla de Navidad",
+  "continente": "Oceanía",
+  "area_km2": 135
+ },
+ {
+  "iso_a3": "CYM",
+  "iso_a2": "KY",
+  "nombre_es": "Islas Caimán",
+  "continente": "América del Norte",
+  "area_km2": 264
+ },
+ {
+  "iso_a3": "CYP",
+  "iso_a2": "CY",
+  "nombre_es": "Chipre",
+  "continente": "Europa",
+  "area_km2": 9251
+ },
+ {
+  "iso_a3": "CZE",
+  "iso_a2": "CZ",
+  "nombre_es": "Chequia",
+  "continente": "Europa",
+  "area_km2": 78865
+ },
+ {
+  "iso_a3": "DEU",
+  "iso_a2": "DE",
+  "nombre_es": "Alemania",
+  "continente": "Europa",
+  "area_km2": 357114
+ },
+ {
+  "iso_a3": "DJI",
+  "iso_a2": "DJ",
+  "nombre_es": "Djibouti",
+  "continente": "África",
+  "area_km2": 23200
+ },
+ {
+  "iso_a3": "DMA",
+  "iso_a2": "DM",
+  "nombre_es": "Dominica",
+  "continente": "América del Norte",
+  "area_km2": 751
+ },
+ {
+  "iso_a3": "DNK",
+  "iso_a2": "DK",
+  "nombre_es": "Dinamarca",
+  "continente": "Europa",
+  "area_km2": 43094
+ },
+ {
+  "iso_a3": "DOM",
+  "iso_a2": "DO",
+  "nombre_es": "República Dominicana",
+  "continente": "América del Norte",
+  "area_km2": 48671
+ },
+ {
+  "iso_a3": "DZA",
+  "iso_a2": "DZ",
+  "nombre_es": "Argelia",
+  "continente": "África",
+  "area_km2": 2381741
+ },
+ {
+  "iso_a3": "ECU",
+  "iso_a2": "EC",
+  "nombre_es": "Ecuador",
+  "continente": "América del Sur",
+  "area_km2": 276841
+ },
+ {
+  "iso_a3": "EGY",
+  "iso_a2": "EG",
+  "nombre_es": "Egipto",
+  "continente": "África",
+  "area_km2": 1002450
+ },
+ {
+  "iso_a3": "ERI",
+  "iso_a2": "ER",
+  "nombre_es": "Eritrea",
+  "continente": "África",
+  "area_km2": 117600
+ },
+ {
+  "iso_a3": "ESH",
+  "iso_a2": "EH",
+  "nombre_es": "Sahara Occidental",
+  "continente": "África",
+  "area_km2": 266000
+ },
+ {
+  "iso_a3": "ESP",
+  "iso_a2": "ES",
+  "nombre_es": "España",
+  "continente": "Europa",
+  "area_km2": 505992
+ },
+ {
+  "iso_a3": "EST",
+  "iso_a2": "EE",
+  "nombre_es": "Estonia",
+  "continente": "Europa",
+  "area_km2": 45227
+ },
+ {
+  "iso_a3": "ETH",
+  "iso_a2": "ET",
+  "nombre_es": "Etiopía",
+  "continente": "África",
+  "area_km2": 1104300
+ },
+ {
+  "iso_a3": "FIN",
+  "iso_a2": "FI",
+  "nombre_es": "Finlandia",
+  "continente": "Europa",
+  "area_km2": 338424
+ },
+ {
+  "iso_a3": "FJI",
+  "iso_a2": "FJ",
+  "nombre_es": "Fiyi",
+  "continente": "Oceanía",
+  "area_km2": 18272
+ },
+ {
+  "iso_a3": "FLK",
+  "iso_a2": "FK",
+  "nombre_es": "Islas Malvinas",
+  "continente": "América del Sur",
+  "area_km2": 12173
+ },
+ {
+  "iso_a3": "FRA",
+  "iso_a2": "FR",
+  "nombre_es": "Francia",
+  "continente": "Europa",
+  "area_km2": 551695
+ },
+ {
+  "iso_a3": "FRO",
+  "iso_a2": "FO",
+  "nombre_es": "Islas Faroe",
+  "continente": "Europa",
+  "area_km2": 1393
+ },
+ {
+  "iso_a3": "FSM",
+  "iso_a2": "FM",
+  "nombre_es": "Micronesia",
+  "continente": "Oceanía",
+  "area_km2": 702
+ },
+ {
+  "iso_a3": "GAB",
+  "iso_a2": "GA",
+  "nombre_es": "Gabón",
+  "continente": "África",
+  "area_km2": 267668
+ },
+ {
+  "iso_a3": "GBR",
+  "iso_a2": "GB",
+  "nombre_es": "Reino Unido",
+  "continente": "Europa",
+  "area_km2": 242900
+ },
+ {
+  "iso_a3": "GEO",
+  "iso_a2": "GE",
+  "nombre_es": "Georgia",
+  "continente": "Asia",
+  "area_km2": 69700
+ },
+ {
+  "iso_a3": "GGY",
+  "iso_a2": "GG",
+  "nombre_es": "Guernsey",
+  "continente": "Europa",
+  "area_km2": 78
+ },
+ {
+  "iso_a3": "GHA",
+  "iso_a2": "GH",
+  "nombre_es": "Ghana",
+  "continente": "África",
+  "area_km2": 238533
+ },
+ {
+  "iso_a3": "GIB",
+  "iso_a2": "GI",
+  "nombre_es": "Gibraltar",
+  "continente": "Europa",
+  "area_km2": 6
+ },
+ {
+  "iso_a3": "GIN",
+  "iso_a2": "GN",
+  "nombre_es": "Guinea",
+  "continente": "África",
+  "area_km2": 245857
+ },
+ {
+  "iso_a3": "GLP",
+  "iso_a2": "GP",
+  "nombre_es": "Guadalupe",
+  "continente": "América del Norte",
+  "area_km2": 1628
+ },
+ {
+  "iso_a3": "GMB",
+  "iso_a2": "GM",
+  "nombre_es": "Gambia",
+  "continente": "África",
+  "area_km2": 10689
+ },
+ {
+  "iso_a3": "GNB",
+  "iso_a2": "GW",
+  "nombre_es": "Guinea-Bisáu",
+  "continente": "África",
+  "area_km2": 36125
+ },
+ {
+  "iso_a3": "GNQ",
+  "iso_a2": "GQ",
+  "nombre_es": "Guinea Ecuatorial",
+  "continente": "África",
+  "area_km2": 28051
+ },
+ {
+  "iso_a3": "GRC",
+  "iso_a2": "GR",
+  "nombre_es": "Grecia",
+  "continente": "Europa",
+  "area_km2": 131990
+ },
+ {
+  "iso_a3": "GRD",
+  "iso_a2": "GD",
+  "nombre_es": "Grenada",
+  "continente": "América del Norte",
+  "area_km2": 344
+ },
+ {
+  "iso_a3": "GRL",
+  "iso_a2": "GL",
+  "nombre_es": "Groenlandia",
+  "continente": "América del Norte",
+  "area_km2": 2166086
+ },
+ {
+  "iso_a3": "GTM",
+  "iso_a2": "GT",
+  "nombre_es": "Guatemala",
+  "continente": "América del Norte",
+  "area_km2": 108889
+ },
+ {
+  "iso_a3": "GUF",
+  "iso_a2": "GF",
+  "nombre_es": "Guayana Francesa",
+  "continente": "América del Sur",
+  "area_km2": 83534
+ },
+ {
+  "iso_a3": "GUM",
+  "iso_a2": "GU",
+  "nombre_es": "Guam",
+  "continente": "Oceanía",
+  "area_km2": 549
+ },
+ {
+  "iso_a3": "GUY",
+  "iso_a2": "GY",
+  "nombre_es": "Guyana",
+  "continente": "América del Sur",
+  "area_km2": 214969
+ },
+ {
+  "iso_a3": "HKG",
+  "iso_a2": "HK",
+  "nombre_es": "Hong Kong",
+  "continente": "Asia",
+  "area_km2": 1104
+ },
+ {
+  "iso_a3": "HMD",
+  "iso_a2": "HM",
+  "nombre_es": "Islas Heard y McDonald",
+  "continente": "Antártida",
+  "area_km2": 412
+ },
+ {
+  "iso_a3": "HND",
+  "iso_a2": "HN",
+  "nombre_es": "Honduras",
+  "continente": "América del Norte",
+  "area_km2": 112492
+ },
+ {
+  "iso_a3": "HRV",
+  "iso_a2": "HR",
+  "nombre_es": "Croacia",
+  "continente": "Europa",
+  "area_km2": 56594
+ },
+ {
+  "iso_a3": "HTI",
+  "iso_a2": "HT",
+  "nombre_es": "Haití",
+  "continente": "América del Norte",
+  "area_km2": 27750
+ },
+ {
+  "iso_a3": "HUN",
+  "iso_a2": "HU",
+  "nombre_es": "Hungría",
+  "continente": "Europa",
+  "area_km2": 93028
+ },
+ {
+  "iso_a3": "IDN",
+  "iso_a2": "ID",
+  "nombre_es": "Indonesia",
+  "continente": "Asia",
+  "area_km2": 1904569
+ },
+ {
+  "iso_a3": "IMN",
+  "iso_a2": "IM",
+  "nombre_es": "Isla de Man",
+  "continente": "Europa",
+  "area_km2": 572
+ },
+ {
+  "iso_a3": "IND",
+  "iso_a2": "IN",
+  "nombre_es": "India",
+  "continente": "Asia",
+  "area_km2": 3287590
+ },
+ {
+  "iso_a3": "IOT",
+  "iso_a2": "IO",
+  "nombre_es": "Territorio Británico del Océano Índico",
+  "continente": "África",
+  "area_km2": 60
+ },
+ {
+  "iso_a3": "IRL",
+  "iso_a2": "IE",
+  "nombre_es": "Irlanda",
+  "continente": "Europa",
+  "area_km2": 70273
+ },
+ {
+  "iso_a3": "IRN",
+  "iso_a2": "IR",
+  "nombre_es": "Iran",
+  "continente": "Asia",
+  "area_km2": 1648195
+ },
+ {
+  "iso_a3": "IRQ",
+  "iso_a2": "IQ",
+  "nombre_es": "Irak",
+  "continente": "Asia",
+  "area_km2": 438317
+ },
+ {
+  "iso_a3": "ISL",
+  "iso_a2": "IS",
+  "nombre_es": "Islandia",
+  "continente": "Europa",
+  "area_km2": 103000
+ },
+ {
+  "iso_a3": "ISR",
+  "iso_a2": "IL",
+  "nombre_es": "Israel",
+  "continente": "Asia",
+  "area_km2": 20770
+ },
+ {
+  "iso_a3": "ITA",
+  "iso_a2": "IT",
+  "nombre_es": "Italia",
+  "continente": "Europa",
+  "area_km2": 301336
+ },
+ {
+  "iso_a3": "JAM",
+  "iso_a2": "JM",
+  "nombre_es": "Jamaica",
+  "continente": "América del Norte",
+  "area_km2": 10991
+ },
+ {
+  "iso_a3": "JEY",
+  "iso_a2": "JE",
+  "nombre_es": "Jersey",
+  "continente": "Europa",
+  "area_km2": 116
+ },
+ {
+  "iso_a3": "JOR",
+  "iso_a2": "JO",
+  "nombre_es": "Jordania",
+  "continente": "Asia",
+  "area_km2": 89342
+ },
+ {
+  "iso_a3": "JPN",
+  "iso_a2": "JP",
+  "nombre_es": "Japón",
+  "continente": "Asia",
+  "area_km2": 377930
+ },
+ {
+  "iso_a3": "KAZ",
+  "iso_a2": "KZ",
+  "nombre_es": "Kazajistán",
+  "continente": "Asia",
+  "area_km2": 2724900
+ },
+ {
+  "iso_a3": "KEN",
+  "iso_a2": "KE",
+  "nombre_es": "Kenia",
+  "continente": "África",
+  "area_km2": 580367
+ },
+ {
+  "iso_a3": "KGZ",
+  "iso_a2": "KG",
+  "nombre_es": "Kirguizistán",
+  "continente": "Asia",
+  "area_km2": 199951
+ },
+ {
+  "iso_a3": "KHM",
+  "iso_a2": "KH",
+  "nombre_es": "Camboya",
+  "continente": "Asia",
+  "area_km2": 181035
+ },
+ {
+  "iso_a3": "KIR",
+  "iso_a2": "KI",
+  "nombre_es": "Kiribati",
+  "continente": "Oceanía",
+  "area_km2": 811
+ },
+ {
+  "iso_a3": "KNA",
+  "iso_a2": "KN",
+  "nombre_es": "San Cristóbal y Nieves",
+  "continente": "América del Norte",
+  "area_km2": 261
+ },
+ {
+  "iso_a3": "KOR",
+  "iso_a2": "KR",
+  "nombre_es": "Corea del Sur",
+  "continente": "Asia",
+  "area_km2": 100210
+ },
+ {
+  "iso_a3": "KWT",
+  "iso_a2": "KW",
+  "nombre_es": "Kuwait",
+  "continente": "Asia",
+  "area_km2": 17818
+ },
+ {
+  "iso_a3": "LAO",
+  "iso_a2": "LA",
+  "nombre_es": "Laos",
+  "continente": "Asia",
+  "area_km2": 236800
+ },
+ {
+  "iso_a3": "LBN",
+  "iso_a2": "LB",
+  "nombre_es": "Líbano",
+  "continente": "Asia",
+  "area_km2": 10452
+ },
+ {
+  "iso_a3": "LBR",
+  "iso_a2": "LR",
+  "nombre_es": "Liberia",
+  "continente": "África",
+  "area_km2": 111369
+ },
+ {
+  "iso_a3": "LBY",
+  "iso_a2": "LY",
+  "nombre_es": "Libia",
+  "continente": "África",
+  "area_km2": 1759540
+ },
+ {
+  "iso_a3": "LCA",
+  "iso_a2": "LC",
+  "nombre_es": "Santa Lucía",
+  "continente": "América del Norte",
+  "area_km2": 616
+ },
+ {
+  "iso_a3": "LIE",
+  "iso_a2": "LI",
+  "nombre_es": "Liechtenstein",
+  "continente": "Europa",
+  "area_km2": 160
+ },
+ {
+  "iso_a3": "LKA",
+  "iso_a2": "LK",
+  "nombre_es": "Sri Lanka",
+  "continente": "Asia",
+  "area_km2": 65610
+ },
+ {
+  "iso_a3": "LSO",
+  "iso_a2": "LS",
+  "nombre_es": "Lesotho",
+  "continente": "África",
+  "area_km2": 30355
+ },
+ {
+  "iso_a3": "LTU",
+  "iso_a2": "LT",
+  "nombre_es": "Lituania",
+  "continente": "Europa",
+  "area_km2": 65300
+ },
+ {
+  "iso_a3": "LUX",
+  "iso_a2": "LU",
+  "nombre_es": "Luxemburgo",
+  "continente": "Europa",
+  "area_km2": 2586
+ },
+ {
+  "iso_a3": "LVA",
+  "iso_a2": "LV",
+  "nombre_es": "Letonia",
+  "continente": "Europa",
+  "area_km2": 64559
+ },
+ {
+  "iso_a3": "MAC",
+  "iso_a2": "MO",
+  "nombre_es": "Macao",
+  "continente": "Asia",
+  "area_km2": 30
+ },
+ {
+  "iso_a3": "MAF",
+  "iso_a2": "MF",
+  "nombre_es": "Saint Martin",
+  "continente": "América del Norte",
+  "area_km2": 53
+ },
+ {
+  "iso_a3": "MAR",
+  "iso_a2": "MA",
+  "nombre_es": "Marruecos",
+  "continente": "África",
+  "area_km2": 446550
+ },
+ {
+  "iso_a3": "MCO",
+  "iso_a2": "MC",
+  "nombre_es": "Mónaco",
+  "continente": "Europa",
+  "area_km2": 2.02
+ },
+ {
+  "iso_a3": "MDA",
+  "iso_a2": "MD",
+  "nombre_es": "Moldavia",
+  "continente": "Europa",
+  "area_km2": 33846
+ },
+ {
+  "iso_a3": "MDG",
+  "iso_a2": "MG",
+  "nombre_es": "Madagascar",
+  "continente": "África",
+  "area_km2": 587041
+ },
+ {
+  "iso_a3": "MDV",
+  "iso_a2": "MV",
+  "nombre_es": "Maldivas",
+  "continente": "Asia",
+  "area_km2": 300
+ },
+ {
+  "iso_a3": "MEX",
+  "iso_a2": "MX",
+  "nombre_es": "México",
+  "continente": "América del Norte",
+  "area_km2": 1964375
+ },
+ {
+  "iso_a3": "MHL",
+  "iso_a2": "MH",
+  "nombre_es": "Islas Marshall",
+  "continente": "Oceanía",
+  "area_km2": 181
+ },
+ {
+  "iso_a3": "MKD",
+  "iso_a2": "MK",
+  "nombre_es": "Macedonia del Norte",
+  "continente": "Europa",
+  "area_km2": 25713
+ },
+ {
+  "iso_a3": "MLI",
+  "iso_a2": "ML",
+  "nombre_es": "Mali",
+  "continente": "África",
+  "area_km2": 1240192
+ },
+ {
+  "iso_a3": "MLT",
+  "iso_a2": "MT",
+  "nombre_es": "Malta",
+  "continente": "Europa",
+  "area_km2": 316
+ },
+ {
+  "iso_a3": "MMR",
+  "iso_a2": "MM",
+  "nombre_es": "Myanmar",
+  "continente": "Asia",
+  "area_km2": 676578
+ },
+ {
+  "iso_a3": "MNE",
+  "iso_a2": "ME",
+  "nombre_es": "Montenegro",
+  "continente": "Europa",
+  "area_km2": 13812
+ },
+ {
+  "iso_a3": "MNG",
+  "iso_a2": "MN",
+  "nombre_es": "Mongolia",
+  "continente": "Asia",
+  "area_km2": 1564110
+ },
+ {
+  "iso_a3": "MNP",
+  "iso_a2": "MP",
+  "nombre_es": "Islas Marianas del Norte",
+  "continente": "Oceanía",
+  "area_km2": 464
+ },
+ {
+  "iso_a3": "MOZ",
+  "iso_a2": "MZ",
+  "nombre_es": "Mozambique",
+  "continente": "África",
+  "area_km2": 801590
+ },
+ {
+  "iso_a3": "MRT",
+  "iso_a2": "MR",
+  "nombre_es": "Mauritania",
+  "continente": "África",
+  "area_km2": 1030700
+ },
+ {
+  "iso_a3": "MSR",
+  "iso_a2": "MS",
+  "nombre_es": "Montserrat",
+  "continente": "América del Norte",
+  "area_km2": 102
+ },
+ {
+  "iso_a3": "MTQ",
+  "iso_a2": "MQ",
+  "nombre_es": "Martinica",
+  "continente": "América del Norte",
+  "area_km2": 1128
+ },
+ {
+  "iso_a3": "MUS",
+  "iso_a2": "MU",
+  "nombre_es": "Mauricio",
+  "continente": "África",
+  "area_km2": 2040
+ },
+ {
+  "iso_a3": "MWI",
+  "iso_a2": "MW",
+  "nombre_es": "Malawi",
+  "continente": "África",
+  "area_km2": 118484
+ },
+ {
+  "iso_a3": "MYS",
+  "iso_a2": "MY",
+  "nombre_es": "Malasia",
+  "continente": "Asia",
+  "area_km2": 330803
+ },
+ {
+  "iso_a3": "MYT",
+  "iso_a2": "YT",
+  "nombre_es": "Mayotte",
+  "continente": "África",
+  "area_km2": 374
+ },
+ {
+  "iso_a3": "NAM",
+  "iso_a2": "NA",
+  "nombre_es": "Namibia",
+  "continente": "África",
+  "area_km2": 825615
+ },
+ {
+  "iso_a3": "NCL",
+  "iso_a2": "NC",
+  "nombre_es": "Nueva Caledonia",
+  "continente": "Oceanía",
+  "area_km2": 18575
+ },
+ {
+  "iso_a3": "NER",
+  "iso_a2": "NE",
+  "nombre_es": "Níger",
+  "continente": "África",
+  "area_km2": 1267000
+ },
+ {
+  "iso_a3": "NFK",
+  "iso_a2": "NF",
+  "nombre_es": "Isla de Norfolk",
+  "continente": "Oceanía",
+  "area_km2": 36
+ },
+ {
+  "iso_a3": "NGA",
+  "iso_a2": "NG",
+  "nombre_es": "Nigeria",
+  "continente": "África",
+  "area_km2": 923768
+ },
+ {
+  "iso_a3": "NIC",
+  "iso_a2": "NI",
+  "nombre_es": "Nicaragua",
+  "continente": "América del Norte",
+  "area_km2": 130373
+ },
+ {
+  "iso_a3": "NIU",
+  "iso_a2": "NU",
+  "nombre_es": "Niue",
+  "continente": "Oceanía",
+  "area_km2": 260
+ },
+ {
+  "iso_a3": "NLD",
+  "iso_a2": "NL",
+  "nombre_es": "Países Bajos",
+  "continente": "Europa",
+  "area_km2": 41850
+ },
+ {
+  "iso_a3": "NOR",
+  "iso_a2": "NO",
+  "nombre_es": "Noruega",
+  "continente": "Europa",
+  "area_km2": 323802
+ },
+ {
+  "iso_a3": "NPL",
+  "iso_a2": "NP",
+  "nombre_es": "Nepal",
+  "continente": "Asia",
+  "area_km2": 147181
+ },
+ {
+  "iso_a3": "NRU",
+  "iso_a2": "NR",
+  "nombre_es": "Nauru",
+  "continente": "Oceanía",
+  "area_km2": 21
+ },
+ {
+  "iso_a3": "NZL",
+  "iso_a2": "NZ",
+  "nombre_es": "Nueva Zelanda",
+  "continente": "Oceanía",
+  "area_km2": 270467
+ },
+ {
+  "iso_a3": "OMN",
+  "iso_a2": "OM",
+  "nombre_es": "Omán",
+  "continente": "Asia",
+  "area_km2": 309500
+ },
+ {
+  "iso_a3": "PAK",
+  "iso_a2": "PK",
+  "nombre_es": "Pakistán",
+  "continente": "Asia",
+  "area_km2": 881912
+ },
+ {
+  "iso_a3": "PAN",
+  "iso_a2": "PA",
+  "nombre_es": "Panamá",
+  "continente": "América del Norte",
+  "area_km2": 75417
+ },
+ {
+  "iso_a3": "PCN",
+  "iso_a2": "PN",
+  "nombre_es": "Islas Pitcairn",
+  "continente": "Oceanía",
+  "area_km2": 47
+ },
+ {
+  "iso_a3": "PER",
+  "iso_a2": "PE",
+  "nombre_es": "Perú",
+  "continente": "América del Sur",
+  "area_km2": 1285216
+ },
+ {
+  "iso_a3": "PHL",
+  "iso_a2": "PH",
+  "nombre_es": "Filipinas",
+  "continente": "Asia",
+  "area_km2": 342353
+ },
+ {
+  "iso_a3": "PLW",
+  "iso_a2": "PW",
+  "nombre_es": "Palau",
+  "continente": "Oceanía",
+  "area_km2": 459
+ },
+ {
+  "iso_a3": "PNG",
+  "iso_a2": "PG",
+  "nombre_es": "Papúa Nueva Guinea",
+  "continente": "Oceanía",
+  "area_km2": 462840
+ },
+ {
+  "iso_a3": "POL",
+  "iso_a2": "PL",
+  "nombre_es": "Polonia",
+  "continente": "Europa",
+  "area_km2": 312679
+ },
+ {
+  "iso_a3": "PRI",
+  "iso_a2": "PR",
+  "nombre_es": "Puerto Rico",
+  "continente": "América del Norte",
+  "area_km2": 8870
+ },
+ {
+  "iso_a3": "PRK",
+  "iso_a2": "KP",
+  "nombre_es": "Corea del Norte",
+  "continente": "Asia",
+  "area_km2": 120538
+ },
+ {
+  "iso_a3": "PRT",
+  "iso_a2": "PT",
+  "nombre_es": "Portugal",
+  "continente": "Europa",
+  "area_km2": 92090
+ },
+ {
+  "iso_a3": "PRY",
+  "iso_a2": "PY",
+  "nombre_es": "Paraguay",
+  "continente": "América del Sur",
+  "area_km2": 406752
+ },
+ {
+  "iso_a3": "PSE",
+  "iso_a2": "PS",
+  "nombre_es": "Palestina",
+  "continente": "Asia",
+  "area_km2": 6220
+ },
+ {
+  "iso_a3": "PYF",
+  "iso_a2": "PF",
+  "nombre_es": "Polinesia Francesa",
+  "continente": "Oceanía",
+  "area_km2": 4167
+ },
+ {
+  "iso_a3": "QAT",
+  "iso_a2": "QA",
+  "nombre_es": "Catar",
+  "continente": "Asia",
+  "area_km2": 11586
+ },
+ {
+  "iso_a3": "REU",
+  "iso_a2": "RE",
+  "nombre_es": "Reunión",
+  "continente": "África",
+  "area_km2": 2511
+ },
+ {
+  "iso_a3": "ROU",
+  "iso_a2": "RO",
+  "nombre_es": "Rumania",
+  "continente": "Europa",
+  "area_km2": 238391
+ },
+ {
+  "iso_a3": "RUS",
+  "iso_a2": "RU",
+  "nombre_es": "Rusia",
+  "continente": "Europa",
+  "area_km2": 17098242
+ },
+ {
+  "iso_a3": "RWA",
+  "iso_a2": "RW",
+  "nombre_es": "Ruanda",
+  "continente": "África",
+  "area_km2": 26338
+ },
+ {
+  "iso_a3": "SAU",
+  "iso_a2": "SA",
+  "nombre_es": "Arabia Saudí",
+  "continente": "Asia",
+  "area_km2": 2149690
+ },
+ {
+  "iso_a3": "SDN",
+  "iso_a2": "SD",
+  "nombre_es": "Sudán",
+  "continente": "África",
+  "area_km2": 1886068
+ },
+ {
+  "iso_a3": "SEN",
+  "iso_a2": "SN",
+  "nombre_es": "Senegal",
+  "continente": "África",
+  "area_km2": 196722
+ },
+ {
+  "iso_a3": "SGP",
+  "iso_a2": "SG",
+  "nombre_es": "Singapur",
+  "continente": "Asia",
+  "area_km2": 710
+ },
+ {
+  "iso_a3": "SGS",
+  "iso_a2": "GS",
+  "nombre_es": "Islas Georgias del Sur y Sandwich del Sur",
+  "continente": "Antártida",
+  "area_km2": 3903
+ },
+ {
+  "iso_a3": "SHN",
+  "iso_a2": "SH",
+  "nombre_es": "Santa Elena, Ascensión y Tristán de Acuña",
+  "continente": "África",
+  "area_km2": 394
+ },
+ {
+  "iso_a3": "SJM",
+  "iso_a2": "SJ",
+  "nombre_es": "Islas Svalbard y Jan Mayen",
+  "continente": "Europa",
+  "area_km2": 62422
+ },
+ {
+  "iso_a3": "SLB",
+  "iso_a2": "SB",
+  "nombre_es": "Islas Salomón",
+  "continente": "Oceanía",
+  "area_km2": 28896
+ },
+ {
+  "iso_a3": "SLE",
+  "iso_a2": "SL",
+  "nombre_es": "Sierra Leone",
+  "continente": "África",
+  "area_km2": 71740
+ },
+ {
+  "iso_a3": "SLV",
+  "iso_a2": "SV",
+  "nombre_es": "El Salvador",
+  "continente": "América del Norte",
+  "area_km2": 21041
+ },
+ {
+  "iso_a3": "SMR",
+  "iso_a2": "SM",
+  "nombre_es": "San Marino",
+  "continente": "Europa",
+  "area_km2": 61
+ },
+ {
+  "iso_a3": "SOM",
+  "iso_a2": "SO",
+  "nombre_es": "Somalia",
+  "continente": "África",
+  "area_km2": 637657
+ },
+ {
+  "iso_a3": "SPM",
+  "iso_a2": "PM",
+  "nombre_es": "San Pedro y Miquelón",
+  "continente": "América del Norte",
+  "area_km2": 242
+ },
+ {
+  "iso_a3": "SRB",
+  "iso_a2": "RS",
+  "nombre_es": "Serbia",
+  "continente": "Europa",
+  "area_km2": 88361
+ },
+ {
+  "iso_a3": "SSD",
+  "iso_a2": "SS",
+  "nombre_es": "Sudán del Sur",
+  "continente": "África",
+  "area_km2": 619745
+ },
+ {
+  "iso_a3": "STP",
+  "iso_a2": "ST",
+  "nombre_es": "Santo Tomé y Príncipe",
+  "continente": "África",
+  "area_km2": 964
+ },
+ {
+  "iso_a3": "SUR",
+  "iso_a2": "SR",
+  "nombre_es": "Surinam",
+  "continente": "América del Sur",
+  "area_km2": 163820
+ },
+ {
+  "iso_a3": "SVK",
+  "iso_a2": "SK",
+  "nombre_es": "Eslovaquia",
+  "continente": "Europa",
+  "area_km2": 49037
+ },
+ {
+  "iso_a3": "SVN",
+  "iso_a2": "SI",
+  "nombre_es": "Eslovenia",
+  "continente": "Europa",
+  "area_km2": 20273
+ },
+ {
+  "iso_a3": "SWE",
+  "iso_a2": "SE",
+  "nombre_es": "Suecia",
+  "continente": "Europa",
+  "area_km2": 450295
+ },
+ {
+  "iso_a3": "SWZ",
+  "iso_a2": "SZ",
+  "nombre_es": "Esuatini",
+  "continente": "África",
+  "area_km2": 17364
+ },
+ {
+  "iso_a3": "SXM",
+  "iso_a2": "SX",
+  "nombre_es": "Sint Maarten",
+  "continente": "América del Norte",
+  "area_km2": 34
+ },
+ {
+  "iso_a3": "SYC",
+  "iso_a2": "SC",
+  "nombre_es": "Seychelles",
+  "continente": "África",
+  "area_km2": 452
+ },
+ {
+  "iso_a3": "SYR",
+  "iso_a2": "SY",
+  "nombre_es": "Siria",
+  "continente": "Asia",
+  "area_km2": 185180
+ },
+ {
+  "iso_a3": "TCA",
+  "iso_a2": "TC",
+  "nombre_es": "Islas Turks y Caicos",
+  "continente": "América del Norte",
+  "area_km2": 948
+ },
+ {
+  "iso_a3": "TCD",
+  "iso_a2": "TD",
+  "nombre_es": "Chad",
+  "continente": "África",
+  "area_km2": 1284000
+ },
+ {
+  "iso_a3": "TGO",
+  "iso_a2": "TG",
+  "nombre_es": "Togo",
+  "continente": "África",
+  "area_km2": 56785
+ },
+ {
+  "iso_a3": "THA",
+  "iso_a2": "TH",
+  "nombre_es": "Tailandia",
+  "continente": "Asia",
+  "area_km2": 513120
+ },
+ {
+  "iso_a3": "TJK",
+  "iso_a2": "TJ",
+  "nombre_es": "Tayikistán",
+  "continente": "Asia",
+  "area_km2": 143100
+ },
+ {
+  "iso_a3": "TKL",
+  "iso_a2": "TK",
+  "nombre_es": "Islas Tokelau",
+  "continente": "Oceanía",
+  "area_km2": 12
+ },
+ {
+  "iso_a3": "TKM",
+  "iso_a2": "TM",
+  "nombre_es": "Turkmenistán",
+  "continente": "Asia",
+  "area_km2": 488100
+ },
+ {
+  "iso_a3": "TLS",
+  "iso_a2": "TL",
+  "nombre_es": "Timor Oriental",
+  "continente": "Asia",
+  "area_km2": 14874
+ },
+ {
+  "iso_a3": "TON",
+  "iso_a2": "TO",
+  "nombre_es": "Tonga",
+  "continente": "Oceanía",
+  "area_km2": 747
+ },
+ {
+  "iso_a3": "TTO",
+  "iso_a2": "TT",
+  "nombre_es": "Trinidad y Tobago",
+  "continente": "América del Norte",
+  "area_km2": 5130
+ },
+ {
+  "iso_a3": "TUN",
+  "iso_a2": "TN",
+  "nombre_es": "Túnez",
+  "continente": "África",
+  "area_km2": 163610
+ },
+ {
+  "iso_a3": "TUR",
+  "iso_a2": "TR",
+  "nombre_es": "Turquía",
+  "continente": "Asia",
+  "area_km2": 783562
+ },
+ {
+  "iso_a3": "TUV",
+  "iso_a2": "TV",
+  "nombre_es": "Tuvalu",
+  "continente": "Oceanía",
+  "area_km2": 26
+ },
+ {
+  "iso_a3": "TWN",
+  "iso_a2": "TW",
+  "nombre_es": "Taiwán",
+  "continente": "Asia",
+  "area_km2": 36193
+ },
+ {
+  "iso_a3": "TZA",
+  "iso_a2": "TZ",
+  "nombre_es": "Tanzania",
+  "continente": "África",
+  "area_km2": 945087
+ },
+ {
+  "iso_a3": "UGA",
+  "iso_a2": "UG",
+  "nombre_es": "Uganda",
+  "continente": "África",
+  "area_km2": 241550
+ },
+ {
+  "iso_a3": "UKR",
+  "iso_a2": "UA",
+  "nombre_es": "Ucrania",
+  "continente": "Europa",
+  "area_km2": 603500
+ },
+ {
+  "iso_a3": "UMI",
+  "iso_a2": "UM",
+  "nombre_es": "Islas Ultramarinas Menores de Estados Unidos",
+  "continente": "América del Norte",
+  "area_km2": 34.2
+ },
+ {
+  "iso_a3": "URY",
+  "iso_a2": "UY",
+  "nombre_es": "Uruguay",
+  "continente": "América del Sur",
+  "area_km2": 181034
+ },
+ {
+  "iso_a3": "USA",
+  "iso_a2": "US",
+  "nombre_es": "Estados Unidos",
+  "continente": "América del Norte",
+  "area_km2": 9372610
+ },
+ {
+  "iso_a3": "UZB",
+  "iso_a2": "UZ",
+  "nombre_es": "Uzbekistán",
+  "continente": "Asia",
+  "area_km2": 447400
+ },
+ {
+  "iso_a3": "VAT",
+  "iso_a2": "VA",
+  "nombre_es": "Ciudad del Vaticano",
+  "continente": "Europa",
+  "area_km2": 0.44
+ },
+ {
+  "iso_a3": "VCT",
+  "iso_a2": "VC",
+  "nombre_es": "San Vicente y Granadinas",
+  "continente": "América del Norte",
+  "area_km2": 389
+ },
+ {
+  "iso_a3": "VEN",
+  "iso_a2": "VE",
+  "nombre_es": "Venezuela",
+  "continente": "América del Sur",
+  "area_km2": 916445
+ },
+ {
+  "iso_a3": "VGB",
+  "iso_a2": "VG",
+  "nombre_es": "Islas Vírgenes del Reino Unido",
+  "continente": "América del Norte",
+  "area_km2": 151
+ },
+ {
+  "iso_a3": "VIR",
+  "iso_a2": "VI",
+  "nombre_es": "Islas Vírgenes de los Estados Unidos",
+  "continente": "América del Norte",
+  "area_km2": 347
+ },
+ {
+  "iso_a3": "VNM",
+  "iso_a2": "VN",
+  "nombre_es": "Vietnam",
+  "continente": "Asia",
+  "area_km2": 331212
+ },
+ {
+  "iso_a3": "VUT",
+  "iso_a2": "VU",
+  "nombre_es": "Vanuatu",
+  "continente": "Oceanía",
+  "area_km2": 12189
+ },
+ {
+  "iso_a3": "WLF",
+  "iso_a2": "WF",
+  "nombre_es": "Wallis y Futuna",
+  "continente": "Oceanía",
+  "area_km2": 142
+ },
+ {
+  "iso_a3": "WSM",
+  "iso_a2": "WS",
+  "nombre_es": "Samoa",
+  "continente": "Oceanía",
+  "area_km2": 2842
+ },
+ {
+  "iso_a3": "YEM",
+  "iso_a2": "YE",
+  "nombre_es": "Yemen",
+  "continente": "Asia",
+  "area_km2": 527968
+ },
+ {
+  "iso_a3": "ZAF",
+  "iso_a2": "ZA",
+  "nombre_es": "Sudáfrica",
+  "continente": "África",
+  "area_km2": 1221037
+ },
+ {
+  "iso_a3": "ZMB",
+  "iso_a2": "ZM",
+  "nombre_es": "Zambia",
+  "continente": "África",
+  "area_km2": 752612
+ },
+ {
+  "iso_a3": "ZWE",
+  "iso_a2": "ZW",
+  "nombre_es": "Zimbabue",
+  "continente": "África",
+  "area_km2": 390757
+ }
+]
