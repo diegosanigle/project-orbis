@@ -1,0 +1,80 @@
+[
+ {
+  "codigo_iso_3166_2": "FR-ARA",
+  "nombre": "Auvernia-Ródano-Alpes",
+  "pais_iso": "FRA",
+  "area_km2": 70915
+ },
+ {
+  "codigo_iso_3166_2": "FR-BFC",
+  "nombre": "Borgoña-Franco Condado",
+  "pais_iso": "FRA",
+  "area_km2": 47973
+ },
+ {
+  "codigo_iso_3166_2": "FR-BRE",
+  "nombre": "Bretaña",
+  "pais_iso": "FRA",
+  "area_km2": 27319
+ },
+ {
+  "codigo_iso_3166_2": "FR-COR",
+  "nombre": "Córcega",
+  "pais_iso": "FRA",
+  "area_km2": 8672
+ },
+ {
+  "codigo_iso_3166_2": "FR-CVL",
+  "nombre": "Centro-Valle del Loira",
+  "pais_iso": "FRA",
+  "area_km2": 39331
+ },
+ {
+  "codigo_iso_3166_2": "FR-GES",
+  "nombre": "Gran Este",
+  "pais_iso": "FRA",
+  "area_km2": 57330
+ },
+ {
+  "codigo_iso_3166_2": "FR-HDF",
+  "nombre": "Alta Francia",
+  "pais_iso": "FRA",
+  "area_km2": 31951
+ },
+ {
+  "codigo_iso_3166_2": "FR-IDF",
+  "nombre": "Isla de Francia",
+  "pais_iso": "FRA",
+  "area_km2": 12095
+ },
+ {
+  "codigo_iso_3166_2": "FR-NAQ",
+  "nombre": "Nueva Aquitania",
+  "pais_iso": "FRA",
+  "area_km2": 84987
+ },
+ {
+  "codigo_iso_3166_2": "FR-NOR",
+  "nombre": "Normandía",
+  "pais_iso": "FRA",
+  "area_km2": 30103
+ },
+ {
+  "codigo_iso_3166_2": "FR-OCC",
+  "nombre": "Occitania",
+  "pais_iso": "FRA",
+  "area_km2": 73515
+ },
+ {
+  "codigo_iso_3166_2": "FR-PAC",
+  "nombre": "Provenza-Alpes-Costa Azul",
+  "pais_iso": "FRA",
+  "area_km2": 31353
+ },
+ {
+  "codigo_iso_3166_2": "FR-PDL",
+  "nombre": "País del Loira",
+  "pais_iso": "FRA",
+  "area_km2": 32114
+ }
+]

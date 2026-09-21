@@ -1,0 +1,122 @@
+[
+ {
+  "codigo_iso_3166_2": "PT-01",
+  "nombre": "Aveiro",
+  "pais_iso": "PRT",
+  "area_km2": 2769
+ },
+ {
+  "codigo_iso_3166_2": "PT-02",
+  "nombre": "Beja",
+  "pais_iso": "PRT",
+  "area_km2": 10270
+ },
+ {
+  "codigo_iso_3166_2": "PT-03",
+  "nombre": "Braga",
+  "pais_iso": "PRT",
+  "area_km2": 2701
+ },
+ {
+  "codigo_iso_3166_2": "PT-04",
+  "nombre": "Braganza",
+  "pais_iso": "PRT",
+  "area_km2": 6303
+ },
+ {
+  "codigo_iso_3166_2": "PT-05",
+  "nombre": "Castelo Branco",
+  "pais_iso": "PRT",
+  "area_km2": 6408
+ },
+ {
+  "codigo_iso_3166_2": "PT-06",
+  "nombre": "Coímbra",
+  "pais_iso": "PRT",
+  "area_km2": 3964
+ },
+ {
+  "codigo_iso_3166_2": "PT-07",
+  "nombre": "Évora",
+  "pais_iso": "PRT",
+  "area_km2": 7241
+ },
+ {
+  "codigo_iso_3166_2": "PT-08",
+  "nombre": "Faro",
+  "pais_iso": "PRT",
+  "area_km2": 4974
+ },
+ {
+  "codigo_iso_3166_2": "PT-09",
+  "nombre": "Guarda",
+  "pais_iso": "PRT",
+  "area_km2": 5480
+ },
+ {
+  "codigo_iso_3166_2": "PT-10",
+  "nombre": "Leiría",
+  "pais_iso": "PRT",
+  "area_km2": 3514
+ },
+ {
+  "codigo_iso_3166_2": "PT-11",
+  "nombre": "Lisboa",
+  "pais_iso": "PRT",
+  "area_km2": 2745
+ },
+ {
+  "codigo_iso_3166_2": "PT-12",
+  "nombre": "Portalegre",
+  "pais_iso": "PRT",
+  "area_km2": 5977
+ },
+ {
+  "codigo_iso_3166_2": "PT-13",
+  "nombre": "Oporto",
+  "pais_iso": "PRT",
+  "area_km2": 2312
+ },
+ {
+  "codigo_iso_3166_2": "PT-14",
+  "nombre": "Santarém",
+  "pais_iso": "PRT",
+  "area_km2": 6753
+ },
+ {
+  "codigo_iso_3166_2": "PT-15",
+  "nombre": "Setúbal",
+  "pais_iso": "PRT",
+  "area_km2": 5129
+ },
+ {
+  "codigo_iso_3166_2": "PT-16",
+  "nombre": "Viana do Castelo",
+  "pais_iso": "PRT",
+  "area_km2": 2179
+ },
+ {
+  "codigo_iso_3166_2": "PT-17",
+  "nombre": "Vila Real",
+  "pais_iso": "PRT",
+  "area_km2": 4204
+ },
+ {
+  "codigo_iso_3166_2": "PT-18",
+  "nombre": "Viseu",
+  "pais_iso": "PRT",
+  "area_km2": 5158
+ },
+ {
+  "codigo_iso_3166_2": "PT-20",
+  "nombre": "Azores",
+  "pais_iso": "PRT",
+  "area_km2": 2612
+ },
+ {
+  "codigo_iso_3166_2": "PT-30",
+  "nombre": "Madeira",
+  "pais_iso": "PRT",
+  "area_km2": 814
+ }
+]

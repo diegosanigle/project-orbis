@@ -1,0 +1,122 @@
+[
+ {
+  "codigo_iso_3166_2": "IT-21",
+  "nombre": "Piamonte",
+  "pais_iso": "ITA",
+  "area_km2": 25511
+ },
+ {
+  "codigo_iso_3166_2": "IT-23",
+  "nombre": "Valle de Aosta",
+  "pais_iso": "ITA",
+  "area_km2": 3304
+ },
+ {
+  "codigo_iso_3166_2": "IT-25",
+  "nombre": "Lombardía",
+  "pais_iso": "ITA",
+  "area_km2": 23974
+ },
+ {
+  "codigo_iso_3166_2": "IT-32",
+  "nombre": "Trentino-Alto Adigio",
+  "pais_iso": "ITA",
+  "area_km2": 13513
+ },
+ {
+  "codigo_iso_3166_2": "IT-34",
+  "nombre": "Véneto",
+  "pais_iso": "ITA",
+  "area_km2": 18035
+ },
+ {
+  "codigo_iso_3166_2": "IT-36",
+  "nombre": "Friuli-Venecia Julia",
+  "pais_iso": "ITA",
+  "area_km2": 7339
+ },
+ {
+  "codigo_iso_3166_2": "IT-42",
+  "nombre": "Liguria",
+  "pais_iso": "ITA",
+  "area_km2": 5493
+ },
+ {
+  "codigo_iso_3166_2": "IT-45",
+  "nombre": "Emilia-Romaña",
+  "pais_iso": "ITA",
+  "area_km2": 22512
+ },
+ {
+  "codigo_iso_3166_2": "IT-52",
+  "nombre": "Toscana",
+  "pais_iso": "ITA",
+  "area_km2": 22970
+ },
+ {
+  "codigo_iso_3166_2": "IT-55",
+  "nombre": "Umbría",
+  "pais_iso": "ITA",
+  "area_km2": 8504
+ },
+ {
+  "codigo_iso_3166_2": "IT-57",
+  "nombre": "Marcas",
+  "pais_iso": "ITA",
+  "area_km2": 9455
+ },
+ {
+  "codigo_iso_3166_2": "IT-62",
+  "nombre": "Lacio",
+  "pais_iso": "ITA",
+  "area_km2": 17052
+ },
+ {
+  "codigo_iso_3166_2": "IT-65",
+  "nombre": "Abruzos",
+  "pais_iso": "ITA",
+  "area_km2": 10899
+ },
+ {
+  "codigo_iso_3166_2": "IT-67",
+  "nombre": "Molise",
+  "pais_iso": "ITA",
+  "area_km2": 4529
+ },
+ {
+  "codigo_iso_3166_2": "IT-72",
+  "nombre": "Campania",
+  "pais_iso": "ITA",
+  "area_km2": 13525
+ },
+ {
+  "codigo_iso_3166_2": "IT-75",
+  "nombre": "Apulia",
+  "pais_iso": "ITA",
+  "area_km2": 19471
+ },
+ {
+  "codigo_iso_3166_2": "IT-77",
+  "nombre": "Basilicata",
+  "pais_iso": "ITA",
+  "area_km2": 10072
+ },
+ {
+  "codigo_iso_3166_2": "IT-78",
+  "nombre": "Calabria",
+  "pais_iso": "ITA",
+  "area_km2": 15142
+ },
+ {
+  "codigo_iso_3166_2": "IT-82",
+  "nombre": "Sicilia",
+  "pais_iso": "ITA",
+  "area_km2": 25912
+ },
+ {
+  "codigo_iso_3166_2": "IT-88",
+  "nombre": "Cerdeña",
+  "pais_iso": "ITA",
+  "area_km2": 24142
+ }
+]

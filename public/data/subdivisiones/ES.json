@@ -1,0 +1,314 @@
+[
+ {
+  "codigo_iso_3166_2": "ES-A",
+  "nombre": "Alicante",
+  "pais_iso": "ESP",
+  "area_km2": 5817
+ },
+ {
+  "codigo_iso_3166_2": "ES-AB",
+  "nombre": "Albacete",
+  "pais_iso": "ESP",
+  "area_km2": 14941
+ },
+ {
+  "codigo_iso_3166_2": "ES-AL",
+  "nombre": "Almería",
+  "pais_iso": "ESP",
+  "area_km2": 8769
+ },
+ {
+  "codigo_iso_3166_2": "ES-AV",
+  "nombre": "Ávila",
+  "pais_iso": "ESP",
+  "area_km2": 8105
+ },
+ {
+  "codigo_iso_3166_2": "ES-B",
+  "nombre": "Barcelona",
+  "pais_iso": "ESP",
+  "area_km2": 7759
+ },
+ {
+  "codigo_iso_3166_2": "ES-BA",
+  "nombre": "Badajoz",
+  "pais_iso": "ESP",
+  "area_km2": 22023
+ },
+ {
+  "codigo_iso_3166_2": "ES-BI",
+  "nombre": "Bizkaia",
+  "pais_iso": "ESP",
+  "area_km2": 2204
+ },
+ {
+  "codigo_iso_3166_2": "ES-BU",
+  "nombre": "Burgos",
+  "pais_iso": "ESP",
+  "area_km2": 14503
+ },
+ {
+  "codigo_iso_3166_2": "ES-C",
+  "nombre": "A Coruña",
+  "pais_iso": "ESP",
+  "area_km2": 7939
+ },
+ {
+  "codigo_iso_3166_2": "ES-CA",
+  "nombre": "Cádiz",
+  "pais_iso": "ESP",
+  "area_km2": 7443
+ },
+ {
+  "codigo_iso_3166_2": "ES-CC",
+  "nombre": "Cáceres",
+  "pais_iso": "ESP",
+  "area_km2": 20140
+ },
+ {
+  "codigo_iso_3166_2": "ES-CE",
+  "nombre": "Ceuta",
+  "pais_iso": "ESP",
+  "area_km2": 43
+ },
+ {
+  "codigo_iso_3166_2": "ES-CO",
+  "nombre": "Córdoba",
+  "pais_iso": "ESP",
+  "area_km2": 13766
+ },
+ {
+  "codigo_iso_3166_2": "ES-CR",
+  "nombre": "Ciudad Real",
+  "pais_iso": "ESP",
+  "area_km2": 19757
+ },
+ {
+  "codigo_iso_3166_2": "ES-CS",
+  "nombre": "Castellón",
+  "pais_iso": "ESP",
+  "area_km2": 6696
+ },
+ {
+  "codigo_iso_3166_2": "ES-CU",
+  "nombre": "Cuenca",
+  "pais_iso": "ESP",
+  "area_km2": 17185
+ },
+ {
+  "codigo_iso_3166_2": "ES-GC",
+  "nombre": "Las Palmas",
+  "pais_iso": "ESP",
+  "area_km2": 4064
+ },
+ {
+  "codigo_iso_3166_2": "ES-GI",
+  "nombre": "Girona",
+  "pais_iso": "ESP",
+  "area_km2": 5876
+ },
+ {
+  "codigo_iso_3166_2": "ES-GR",
+  "nombre": "Granada",
+  "pais_iso": "ESP",
+  "area_km2": 12705
+ },
+ {
+  "codigo_iso_3166_2": "ES-GU",
+  "nombre": "Guadalajara",
+  "pais_iso": "ESP",
+  "area_km2": 12251
+ },
+ {
+  "codigo_iso_3166_2": "ES-H",
+  "nombre": "Huelva",
+  "pais_iso": "ESP",
+  "area_km2": 10151
+ },
+ {
+  "codigo_iso_3166_2": "ES-HU",
+  "nombre": "Huesca",
+  "pais_iso": "ESP",
+  "area_km2": 15539
+ },
+ {
+  "codigo_iso_3166_2": "ES-J",
+  "nombre": "Jaén",
+  "pais_iso": "ESP",
+  "area_km2": 13624
+ },
+ {
+  "codigo_iso_3166_2": "ES-L",
+  "nombre": "Lleida",
+  "pais_iso": "ESP",
+  "area_km2": 12090
+ },
+ {
+  "codigo_iso_3166_2": "ES-LE",
+  "nombre": "León",
+  "pais_iso": "ESP",
+  "area_km2": 15652
+ },
+ {
+  "codigo_iso_3166_2": "ES-LO",
+  "nombre": "La Rioja",
+  "pais_iso": "ESP",
+  "area_km2": 5335
+ },
+ {
+  "codigo_iso_3166_2": "ES-LU",
+  "nombre": "Lugo",
+  "pais_iso": "ESP",
+  "area_km2": 9859
+ },
+ {
+  "codigo_iso_3166_2": "ES-M",
+  "nombre": "Madrid",
+  "pais_iso": "ESP",
+  "area_km2": 8009
+ },
+ {
+  "codigo_iso_3166_2": "ES-MA",
+  "nombre": "Málaga",
+  "pais_iso": "ESP",
+  "area_km2": 7362
+ },
+ {
+  "codigo_iso_3166_2": "ES-ML",
+  "nombre": "Melilla",
+  "pais_iso": "ESP",
+  "area_km2": 18
+ },
+ {
+  "codigo_iso_3166_2": "ES-MU",
+  "nombre": "Murcia",
+  "pais_iso": "ESP",
+  "area_km2": 11328
+ },
+ {
+  "codigo_iso_3166_2": "ES-NA",
+  "nombre": "Navarra",
+  "pais_iso": "ESP",
+  "area_km2": 10099
+ },
+ {
+  "codigo_iso_3166_2": "ES-O",
+  "nombre": "Asturias",
+  "pais_iso": "ESP",
+  "area_km2": 10682
+ },
+ {
+  "codigo_iso_3166_2": "ES-OR",
+  "nombre": "Ourense",
+  "pais_iso": "ESP",
+  "area_km2": 7391
+ },
+ {
+  "codigo_iso_3166_2": "ES-P",
+  "nombre": "Palencia",
+  "pais_iso": "ESP",
+  "area_km2": 8025
+ },
+ {
+  "codigo_iso_3166_2": "ES-PM",
+  "nombre": "Islas Baleares",
+  "pais_iso": "ESP",
+  "area_km2": 5123
+ },
+ {
+  "codigo_iso_3166_2": "ES-PO",
+  "nombre": "Pontevedra",
+  "pais_iso": "ESP",
+  "area_km2": 4420
+ },
+ {
+  "codigo_iso_3166_2": "ES-S",
+  "nombre": "Cantabria",
+  "pais_iso": "ESP",
+  "area_km2": 5350
+ },
+ {
+  "codigo_iso_3166_2": "ES-SA",
+  "nombre": "Salamanca",
+  "pais_iso": "ESP",
+  "area_km2": 12591
+ },
+ {
+  "codigo_iso_3166_2": "ES-SE",
+  "nombre": "Sevilla",
+  "pais_iso": "ESP",
+  "area_km2": 14031
+ },
+ {
+  "codigo_iso_3166_2": "ES-SG",
+  "nombre": "Segovia",
+  "pais_iso": "ESP",
+  "area_km2": 6903
+ },
+ {
+  "codigo_iso_3166_2": "ES-SO",
+  "nombre": "Soria",
+  "pais_iso": "ESP",
+  "area_km2": 10275
+ },
+ {
+  "codigo_iso_3166_2": "ES-SS",
+  "nombre": "Gipuzkoa",
+  "pais_iso": "ESP",
+  "area_km2": 1966
+ },
+ {
+  "codigo_iso_3166_2": "ES-T",
+  "nombre": "Tarragona",
+  "pais_iso": "ESP",
+  "area_km2": 6271
+ },
+ {
+  "codigo_iso_3166_2": "ES-TE",
+  "nombre": "Teruel",
+  "pais_iso": "ESP",
+  "area_km2": 14824
+ },
+ {
+  "codigo_iso_3166_2": "ES-TF",
+  "nombre": "Santa Cruz de Tenerife",
+  "pais_iso": "ESP",
+  "area_km2": 3399
+ },
+ {
+  "codigo_iso_3166_2": "ES-TO",
+  "nombre": "Toledo",
+  "pais_iso": "ESP",
+  "area_km2": 15376
+ },
+ {
+  "codigo_iso_3166_2": "ES-V",
+  "nombre": "Valencia",
+  "pais_iso": "ESP",
+  "area_km2": 10785
+ },
+ {
+  "codigo_iso_3166_2": "ES-VA",
+  "nombre": "Valladolid",
+  "pais_iso": "ESP",
+  "area_km2": 8137
+ },
+ {
+  "codigo_iso_3166_2": "ES-VI",
+  "nombre": "Álava",
+  "pais_iso": "ESP",
+  "area_km2": 2895
+ },
+ {
+  "codigo_iso_3166_2": "ES-Z",
+  "nombre": "Zaragoza",
+  "pais_iso": "ESP",
+  "area_km2": 17301
+ },
+ {
+  "codigo_iso_3166_2": "ES-ZA",
+  "nombre": "Zamora",
+  "pais_iso": "ESP",
+  "area_km2": 10663
+ }
+]

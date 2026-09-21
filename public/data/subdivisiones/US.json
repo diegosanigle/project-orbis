@@ -1,0 +1,308 @@
+[
+ {
+  "codigo_iso_3166_2": "US-AK",
+  "nombre": "Alaska",
+  "pais_iso": "USA",
+  "area_km2": 1499254
+ },
+ {
+  "codigo_iso_3166_2": "US-AL",
+  "nombre": "Alabama",
+  "pais_iso": "USA",
+  "area_km2": 134208
+ },
+ {
+  "codigo_iso_3166_2": "US-AR",
+  "nombre": "Arkansas",
+  "pais_iso": "USA",
+  "area_km2": 137861
+ },
+ {
+  "codigo_iso_3166_2": "US-AZ",
+  "nombre": "Arizona",
+  "pais_iso": "USA",
+  "area_km2": 295798
+ },
+ {
+  "codigo_iso_3166_2": "US-CA",
+  "nombre": "California",
+  "pais_iso": "USA",
+  "area_km2": 410482
+ },
+ {
+  "codigo_iso_3166_2": "US-CO",
+  "nombre": "Colorado",
+  "pais_iso": "USA",
+  "area_km2": 269582
+ },
+ {
+  "codigo_iso_3166_2": "US-CT",
+  "nombre": "Connecticut",
+  "pais_iso": "USA",
+  "area_km2": 12715
+ },
+ {
+  "codigo_iso_3166_2": "US-DC",
+  "nombre": "Washington D. C.",
+  "pais_iso": "USA",
+  "area_km2": 162
+ },
+ {
+  "codigo_iso_3166_2": "US-DE",
+  "nombre": "Delaware",
+  "pais_iso": "USA",
+  "area_km2": 5179
+ },
+ {
+  "codigo_iso_3166_2": "US-FL",
+  "nombre": "Florida",
+  "pais_iso": "USA",
+  "area_km2": 147252
+ },
+ {
+  "codigo_iso_3166_2": "US-GA",
+  "nombre": "Georgia",
+  "pais_iso": "USA",
+  "area_km2": 152593
+ },
+ {
+  "codigo_iso_3166_2": "US-HI",
+  "nombre": "Hawái",
+  "pais_iso": "USA",
+  "area_km2": 16934
+ },
+ {
+  "codigo_iso_3166_2": "US-IA",
+  "nombre": "Iowa",
+  "pais_iso": "USA",
+  "area_km2": 145548
+ },
+ {
+  "codigo_iso_3166_2": "US-ID",
+  "nombre": "Idaho",
+  "pais_iso": "USA",
+  "area_km2": 216290
+ },
+ {
+  "codigo_iso_3166_2": "US-IL",
+  "nombre": "Illinois",
+  "pais_iso": "USA",
+  "area_km2": 150326
+ },
+ {
+  "codigo_iso_3166_2": "US-IN",
+  "nombre": "Indiana",
+  "pais_iso": "USA",
+  "area_km2": 94446
+ },
+ {
+  "codigo_iso_3166_2": "US-KS",
+  "nombre": "Kansas",
+  "pais_iso": "USA",
+  "area_km2": 213151
+ },
+ {
+  "codigo_iso_3166_2": "US-KY",
+  "nombre": "Kentucky",
+  "pais_iso": "USA",
+  "area_km2": 104760
+ },
+ {
+  "codigo_iso_3166_2": "US-LA",
+  "nombre": "Luisiana",
+  "pais_iso": "USA",
+  "area_km2": 119924
+ },
+ {
+  "codigo_iso_3166_2": "US-MA",
+  "nombre": "Massachusetts",
+  "pais_iso": "USA",
+  "area_km2": 21175
+ },
+ {
+  "codigo_iso_3166_2": "US-MD",
+  "nombre": "Maryland",
+  "pais_iso": "USA",
+  "area_km2": 25497
+ },
+ {
+  "codigo_iso_3166_2": "US-ME",
+  "nombre": "Maine",
+  "pais_iso": "USA",
+  "area_km2": 84251
+ },
+ {
+  "codigo_iso_3166_2": "US-MI",
+  "nombre": "Míchigan",
+  "pais_iso": "USA",
+  "area_km2": 250057
+ },
+ {
+  "codigo_iso_3166_2": "US-MN",
+  "nombre": "Minnesota",
+  "pais_iso": "USA",
+  "area_km2": 224714
+ },
+ {
+  "codigo_iso_3166_2": "US-MO",
+  "nombre": "Misuri",
+  "pais_iso": "USA",
+  "area_km2": 180757
+ },
+ {
+  "codigo_iso_3166_2": "US-MS",
+  "nombre": "Misisipi",
+  "pais_iso": "USA",
+  "area_km2": 124153
+ },
+ {
+  "codigo_iso_3166_2": "US-MT",
+  "nombre": "Montana",
+  "pais_iso": "USA",
+  "area_km2": 379318
+ },
+ {
+  "codigo_iso_3166_2": "US-NC",
+  "nombre": "Carolina del Norte",
+  "pais_iso": "USA",
+  "area_km2": 127941
+ },
+ {
+  "codigo_iso_3166_2": "US-ND",
+  "nombre": "Dakota del Norte",
+  "pais_iso": "USA",
+  "area_km2": 182644
+ },
+ {
+  "codigo_iso_3166_2": "US-NE",
+  "nombre": "Nebraska",
+  "pais_iso": "USA",
+  "area_km2": 201135
+ },
+ {
+  "codigo_iso_3166_2": "US-NH",
+  "nombre": "Nuevo Hampshire",
+  "pais_iso": "USA",
+  "area_km2": 24274
+ },
+ {
+  "codigo_iso_3166_2": "US-NJ",
+  "nombre": "Nueva Jersey",
+  "pais_iso": "USA",
+  "area_km2": 19690
+ },
+ {
+  "codigo_iso_3166_2": "US-NM",
+  "nombre": "Nuevo México",
+  "pais_iso": "USA",
+  "area_km2": 315845
+ },
+ {
+  "codigo_iso_3166_2": "US-NV",
+  "nombre": "Nevada",
+  "pais_iso": "USA",
+  "area_km2": 287472
+ },
+ {
+  "codigo_iso_3166_2": "US-NY",
+  "nombre": "Nueva York",
+  "pais_iso": "USA",
+  "area_km2": 136999
+ },
+ {
+  "codigo_iso_3166_2": "US-OH",
+  "nombre": "Ohio",
+  "pais_iso": "USA",
+  "area_km2": 116169
+ },
+ {
+  "codigo_iso_3166_2": "US-OK",
+  "nombre": "Oklahoma",
+  "pais_iso": "USA",
+  "area_km2": 181031
+ },
+ {
+  "codigo_iso_3166_2": "US-OR",
+  "nombre": "Oregón",
+  "pais_iso": "USA",
+  "area_km2": 251954
+ },
+ {
+  "codigo_iso_3166_2": "US-PA",
+  "nombre": "Pensilvania",
+  "pais_iso": "USA",
+  "area_km2": 119473
+ },
+ {
+  "codigo_iso_3166_2": "US-RI",
+  "nombre": "Rhode Island",
+  "pais_iso": "USA",
+  "area_km2": 2835
+ },
+ {
+  "codigo_iso_3166_2": "US-SC",
+  "nombre": "Carolina del Sur",
+  "pais_iso": "USA",
+  "area_km2": 80368
+ },
+ {
+  "codigo_iso_3166_2": "US-SD",
+  "nombre": "Dakota del Sur",
+  "pais_iso": "USA",
+  "area_km2": 199333
+ },
+ {
+  "codigo_iso_3166_2": "US-TN",
+  "nombre": "Tennessee",
+  "pais_iso": "USA",
+  "area_km2": 109530
+ },
+ {
+  "codigo_iso_3166_2": "US-TX",
+  "nombre": "Texas",
+  "pais_iso": "USA",
+  "area_km2": 687439
+ },
+ {
+  "codigo_iso_3166_2": "US-UT",
+  "nombre": "Utah",
+  "pais_iso": "USA",
+  "area_km2": 220056
+ },
+ {
+  "codigo_iso_3166_2": "US-VA",
+  "nombre": "Virginia",
+  "pais_iso": "USA",
+  "area_km2": 103906
+ },
+ {
+  "codigo_iso_3166_2": "US-VT",
+  "nombre": "Vermont",
+  "pais_iso": "USA",
+  "area_km2": 24642
+ },
+ {
+  "codigo_iso_3166_2": "US-WA",
+  "nombre": "Washington",
+  "pais_iso": "USA",
+  "area_km2": 174017
+ },
+ {
+  "codigo_iso_3166_2": "US-WI",
+  "nombre": "Wisconsin",
+  "pais_iso": "USA",
+  "area_km2": 169412
+ },
+ {
+  "codigo_iso_3166_2": "US-WV",
+  "nombre": "Virginia Occidental",
+  "pais_iso": "USA",
+  "area_km2": 62829
+ },
+ {
+  "codigo_iso_3166_2": "US-WY",
+  "nombre": "Wyoming",
+  "pais_iso": "USA",
+  "area_km2": 253607
+ }
+]

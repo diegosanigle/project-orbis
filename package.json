@@ -16,6 +16,7 @@
     "marked": "^13.0.3"
   },
   "devDependencies": {
+    "mapshaper": "^0.7.63",
     "vite": "^8.3.0",
     "vitest": "^5.0.1"
   }
