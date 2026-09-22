@@ -6,8 +6,7 @@ import { bboxGrados, estadoPorPais, estadoPorSubdivision, normalizarBobinado } f
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim()
 
 const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
-const ALTITUD_PAIS = 0.005
-const ALTITUD_SUBDIVISION = 0.006 // por encima del país: gana el raycast del click y evita z-fighting
+const ALTITUD = 0.005
 
 // Densidad de la trama de puntos de "escala": grados de longitud/latitud por dot.
 // Cada país tiene su propio UV 0-1 (three-globe), así que el repeat de la textura se
@@ -59,35 +58,45 @@ export async function renderGlobe(container) {
   const viajes = viajesData ?? []
   const nombres = new Map(paises.map((p) => [p.iso_a3, p.nombre_es]))
 
-  // El país entero (capa base) solo se colorea con los viajes que no listan ninguna
-  // subdivisión concreta — si el usuario eligió una provincia, esa se pinta aparte.
+  // El país entero (usado como color de respaldo de sus subdivisiones sin viaje propio)
+  // solo cuenta los viajes que no listan ninguna subdivisión concreta.
   const estadoPaises = estadoPorPais(viajes.filter((v) => !v.subdivisiones?.length))
   const estadoSub = estadoPorSubdivision(viajes)
 
-  // Nombre + país de cada subdivisión, y solo las features de subdivisión con datos
-  // propios (no hace falta renderizar las que nadie ha visitado: el relleno del país
-  // debajo ya se ve).
+  // Para ES/PT/FR/IT/US/GB se renderiza siempre a nivel subdivisión (todas, no solo las
+  // visitadas) en vez del polígono de país: el contorno de paises.geojson y el de los
+  // ficheros de subdivisiones vienen de fuentes con distinta simplificación y no encajan
+  // exactamente, así que apilar ambas capas dejaba costuras visibles en el borde. Con una
+  // única fuente de contorno por país no hay dos capas que puedan desalinearse.
+  const isoA3ConSubdivision = new Set()
   const nombreSubdivision = new Map()
   const featuresSubdivisiones = []
   subdivisionesPorPais.forEach(([subGeo, subLista], i) => {
     const paisIso = paises.find((p) => p.iso_a2 === PAISES_CON_SUBDIVISION[i])?.iso_a3
+    isoA3ConSubdivision.add(paisIso)
     for (const s of subLista) nombreSubdivision.set(s.codigo_iso_3166_2, s.nombre)
     for (const f of subGeo.features) {
-      if (estadoSub.has(f.properties.codigo_iso_3166_2)) {
-        // Los ficheros de subdivisiones traen bobinado mixto entre piezas de un mismo
-        // MultiPolygon (mapshaper -dissolve). Mezclarlo con el sentido de paises.geojson
-        // en el mismo polygonsData corrompe el render del globo entero — normalizar
-        // antes de combinarlas.
-        featuresSubdivisiones.push({
-          ...f,
-          properties: { ...f.properties, iso_a3: paisIso },
-          geometry: normalizarBobinado(f.geometry),
-        })
-      }
+      // Los ficheros de subdivisiones traen bobinado mixto entre piezas de un mismo
+      // MultiPolygon (mapshaper -dissolve). Mezclarlo con el sentido de paises.geojson
+      // en el mismo polygonsData corrompe el render del globo entero — normalizar antes
+      // de combinarlas.
+      featuresSubdivisiones.push({
+        ...f,
+        properties: { ...f.properties, iso_a3: paisIso },
+        geometry: normalizarBobinado(f.geometry),
+      })
     }
   })
+  const featuresPaises = geo.features.filter((f) => !isoA3ConSubdivision.has(f.properties.iso_a3))
 
   const esSubdivision = (f) => f.properties.codigo_iso_3166_2 !== undefined
+
+  // Info de una subdivisión: la suya propia si hay viajes a ella, si no la del país (solo
+  // se rellena si hay un viaje sin subdivisión concreta — ver estadoPaises arriba).
+  function infoPara(feature) {
+    if (!esSubdivision(feature)) return estadoPaises.get(feature.properties.iso_a3)
+    return estadoSub.get(feature.properties.codigo_iso_3166_2) ?? estadoPaises.get(feature.properties.iso_a3)
+  }
 
   const canvasEscala = crearCanvasEscala()
   const dataUrlEscala = canvasEscala.toDataURL()
@@ -113,18 +122,14 @@ export async function renderGlobe(container) {
   }
 
   function materialPara(feature) {
-    const info = esSubdivision(feature)
-      ? estadoSub.get(feature.properties.codigo_iso_3166_2)
-      : estadoPaises.get(feature.properties.iso_a3)
+    const info = infoPara(feature)
     if (!info) return materialNoVisitado
     if (info.estado === 'visitado') return materialVisitado
     return materialEscala(feature)
   }
 
   function etiquetaPara(feature) {
-    const info = esSubdivision(feature)
-      ? estadoSub.get(feature.properties.codigo_iso_3166_2)
-      : estadoPaises.get(feature.properties.iso_a3)
+    const info = infoPara(feature)
     const nombrePais = nombres.get(feature.properties.iso_a3) ?? feature.properties.iso_a3
     const nombre = esSubdivision(feature)
       ? `${nombreSubdivision.get(feature.properties.codigo_iso_3166_2)}, ${nombrePais}`
@@ -139,11 +144,11 @@ export async function renderGlobe(container) {
     .height(window.innerHeight)
     .backgroundColor(css('--sky'))
     .showAtmosphere(false)
-    .polygonsData([...geo.features, ...featuresSubdivisiones])
+    .polygonsData([...featuresPaises, ...featuresSubdivisiones])
     .polygonCapMaterial((f) => materialPara(f))
     .polygonSideColor(() => 'rgba(0,0,0,0)')
     .polygonStrokeColor(() => css('--ink'))
-    .polygonAltitude((f) => (esSubdivision(f) ? ALTITUD_SUBDIVISION : ALTITUD_PAIS))
+    .polygonAltitude(ALTITUD)
     .onPolygonClick((f) => {
       label.textContent = etiquetaPara(f)
     })
