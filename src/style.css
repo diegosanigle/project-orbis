@@ -3,6 +3,7 @@
   --sky: #5d96b4;
   --globe-land: #e3eadb;
   --ink: #12150f;
+  --orange: #da5f2e;
 }
 
 body {
@@ -13,9 +14,32 @@ body {
 }
 
 #globe-label,
-#logout {
+#logout,
+#globe-legend {
   position: fixed;
   left: 20px;
 }
 #globe-label { top: 16px; margin: 0; }
 #logout { bottom: 16px; }
+
+#globe-legend {
+  bottom: 16px;
+  right: 20px;
+  left: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#globe-legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#globe-legend .swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: var(--globe-land);
+  background-size: 14px 14px;
+}
+#globe-legend .swatch[data-estado="visitado"] { background-color: var(--orange); }
