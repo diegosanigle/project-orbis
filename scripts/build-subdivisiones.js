@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { suavizar } from './lib/chaikin.js'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const cache = join(root, 'scripts/.cache')
@@ -13,6 +14,12 @@ const out = join(root, 'public/data/subdivisiones')
 const mapshaper = join(root, 'node_modules/.bin/mapshaper')
 const SRC = 'ne_10m_admin_1.geojson'
 const BUFFER_KM = 20 // ver comentario junto a -buffer más abajo
+// Mismo pipeline de suavizado que paises.geojson (build-paises.js): sin él, las
+// provincias quedan angulosas (Natural Earth admin-1 simplificado sin Chaikin) al lado
+// de costas redondeadas del resto del globo — se nota especialmente en países pequeños
+// como Cantabria o Escocia.
+const ITERACIONES_SUAVIZADO = 2
+const ALIGERAR = '60%'
 const URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson'
 
 // Natural Earth trae provincias en ES/PT, departamentos en FR y provincias en IT: FR e IT se disuelven a región.
@@ -86,21 +93,38 @@ for (const [pais, cfg] of Object.entries(PAISES)) {
 
   const tmp = join(cache, `sub_${pais}.geojson`)
   writeFileSync(tmp, JSON.stringify({ type: 'FeatureCollection', features }))
-  const args = [tmp]
-  if (cfg.region) args.push('-dissolve', 'codigo_iso_3166_2', 'copy-fields=nombre')
-  args.push(
+  const argsSimplificar = [tmp]
+  if (cfg.region) argsSimplificar.push('-dissolve', 'codigo_iso_3166_2', 'copy-fields=nombre')
+  const simplificado = join(cache, `sub_${pais}_simplificado.geojson`)
+  // area_km2 se calcula aquí, sobre la geometría simplificada pero antes de suavizar o
+  // ensanchar el borde: esos dos pasos son cosméticos y no deben mover el dato de superficie.
+  argsSimplificar.push(
     '-each', 'area_km2=Math.round($.area/1e6)', '-simplify', cfg.simplify, 'keep-shapes',
-    // paises.geojson se suaviza aparte (build-paises.js) con un Chaikin que preserva los
-    // nodos compartidos entre países; este fichero no tiene ese tratamiento ni conoce a
-    // los vecinos, así que su borde exterior no encaja exacto con el de paises.geojson
-    // (deja un hueco fino y dentado en el globo). BUFFER_KM ensancha solo el borde no
-    // compartido entre provincias (`topological`, no engorda las fronteras internas) lo
-    // justo para tapar ese hueco sin que se note a ojo. area_km2 ya se calculó arriba,
-    // así que esto no afecta al dato de superficie, solo al polígono que se dibuja.
-    '-buffer', `radius=${BUFFER_KM * 1000}`, 'geodesic', 'topological',
-    '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force'
+    '-o', simplificado, 'format=geojson', 'precision=0.01', 'force'
   )
-  execFileSync(mapshaper, args, { stdio: ['ignore', 'ignore', 'inherit'] })
+  execFileSync(mapshaper, argsSimplificar, { stdio: ['ignore', 'ignore', 'inherit'] })
+
+  // Pipeline: suavizar (Chaikin, redondea esquinas; nodos entre provincias fijos, igual
+  // que build-paises.js entre países) → aligerar los puntos casi rectos que deja el
+  // suavizado → ensanchar el borde exterior no compartido (ver comentario de BUFFER_KM).
+  const suavizado = join(cache, `sub_${pais}_suavizado.geojson`)
+  writeFileSync(suavizado, JSON.stringify(suavizar(JSON.parse(readFileSync(simplificado, 'utf8')), ITERACIONES_SUAVIZADO)))
+
+  execFileSync(
+    mapshaper,
+    [
+      suavizado, '-simplify', ALIGERAR, 'weighting=1', 'keep-shapes',
+      // paises.geojson se suaviza con un Chaikin que preserva los nodos compartidos
+      // entre países; este fichero no conoce a los vecinos de fuera del propio país, así
+      // que su borde exterior no encaja exacto con el de paises.geojson (deja un hueco
+      // fino en el globo). BUFFER_KM ensancha solo el borde no compartido entre
+      // provincias (`topological`, no engorda las fronteras internas) lo justo para
+      // taparlo sin que se note a ojo.
+      '-buffer', `radius=${BUFFER_KM * 1000}`, 'geodesic', 'topological',
+      '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force',
+    ],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  )
 
   const res = JSON.parse(readFileSync(join(out, `${pais}.geojson`), 'utf8'))
   const lista = res.features
