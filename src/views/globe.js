@@ -1,9 +1,13 @@
 import Globe from 'globe.gl'
 import * as THREE from 'three'
 import { supabase } from '../lib/supabase.js'
-import { bboxGrados, estadoPorPais } from '../lib/geo.js'
+import { bboxGrados, estadoPorPais, estadoPorSubdivision, normalizarBobinado } from '../lib/geo.js'
 
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+
+const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
+const ALTITUD_PAIS = 0.005
+const ALTITUD_SUBDIVISION = 0.006 // por encima del país: gana el raycast del click y evita z-fighting
 
 // Densidad de la trama de puntos de "escala": grados de longitud/latitud por dot.
 // Cada país tiene su propio UV 0-1 (three-globe), así que el repeat de la textura se
@@ -40,14 +44,50 @@ export async function renderGlobe(container) {
   const el = container.querySelector('#globe')
   const label = container.querySelector('#globe-label')
 
-  const [paises, geo, { data: viajesData, error: viajesError }] = await Promise.all([
+  const [paises, geo, { data: viajesData, error: viajesError }, ...subdivisionesPorPais] = await Promise.all([
     fetch('/data/paises.json').then((r) => r.json()),
     fetch('/data/paises.geojson').then((r) => r.json()),
-    supabase.from('viajes').select('pais_iso, tipo'),
+    supabase.from('viajes').select('pais_iso, tipo, subdivisiones'),
+    ...PAISES_CON_SUBDIVISION.map((iso2) =>
+      Promise.all([
+        fetch(`/data/subdivisiones/${iso2}.geojson`).then((r) => r.json()),
+        fetch(`/data/subdivisiones/${iso2}.json`).then((r) => r.json()),
+      ])
+    ),
   ])
   if (viajesError) console.error('No se pudieron cargar los viajes para el globo', viajesError)
+  const viajes = viajesData ?? []
   const nombres = new Map(paises.map((p) => [p.iso_a3, p.nombre_es]))
-  const estado = estadoPorPais(viajesData ?? [])
+
+  // El país entero (capa base) solo se colorea con los viajes que no listan ninguna
+  // subdivisión concreta — si el usuario eligió una provincia, esa se pinta aparte.
+  const estadoPaises = estadoPorPais(viajes.filter((v) => !v.subdivisiones?.length))
+  const estadoSub = estadoPorSubdivision(viajes)
+
+  // Nombre + país de cada subdivisión, y solo las features de subdivisión con datos
+  // propios (no hace falta renderizar las que nadie ha visitado: el relleno del país
+  // debajo ya se ve).
+  const nombreSubdivision = new Map()
+  const featuresSubdivisiones = []
+  subdivisionesPorPais.forEach(([subGeo, subLista], i) => {
+    const paisIso = paises.find((p) => p.iso_a2 === PAISES_CON_SUBDIVISION[i])?.iso_a3
+    for (const s of subLista) nombreSubdivision.set(s.codigo_iso_3166_2, s.nombre)
+    for (const f of subGeo.features) {
+      if (estadoSub.has(f.properties.codigo_iso_3166_2)) {
+        // Los ficheros de subdivisiones traen bobinado mixto entre piezas de un mismo
+        // MultiPolygon (mapshaper -dissolve). Mezclarlo con el sentido de paises.geojson
+        // en el mismo polygonsData corrompe el render del globo entero — normalizar
+        // antes de combinarlas.
+        featuresSubdivisiones.push({
+          ...f,
+          properties: { ...f.properties, iso_a3: paisIso },
+          geometry: normalizarBobinado(f.geometry),
+        })
+      }
+    }
+  })
+
+  const esSubdivision = (f) => f.properties.codigo_iso_3166_2 !== undefined
 
   const canvasEscala = crearCanvasEscala()
   const dataUrlEscala = canvasEscala.toDataURL()
@@ -73,10 +113,25 @@ export async function renderGlobe(container) {
   }
 
   function materialPara(feature) {
-    const info = estado.get(feature.properties.iso_a3)
+    const info = esSubdivision(feature)
+      ? estadoSub.get(feature.properties.codigo_iso_3166_2)
+      : estadoPaises.get(feature.properties.iso_a3)
     if (!info) return materialNoVisitado
     if (info.estado === 'visitado') return materialVisitado
     return materialEscala(feature)
+  }
+
+  function etiquetaPara(feature) {
+    const info = esSubdivision(feature)
+      ? estadoSub.get(feature.properties.codigo_iso_3166_2)
+      : estadoPaises.get(feature.properties.iso_a3)
+    const nombrePais = nombres.get(feature.properties.iso_a3) ?? feature.properties.iso_a3
+    const nombre = esSubdivision(feature)
+      ? `${nombreSubdivision.get(feature.properties.codigo_iso_3166_2)}, ${nombrePais}`
+      : nombrePais
+    return info
+      ? `${nombre}, ${info.estado}, ${info.viajes} viaje${info.viajes === 1 ? '' : 's'}`
+      : `${nombre}, no visitado`
   }
 
   const globe = Globe()(el)
@@ -84,18 +139,13 @@ export async function renderGlobe(container) {
     .height(window.innerHeight)
     .backgroundColor(css('--sky'))
     .showAtmosphere(false)
-    .polygonsData(geo.features)
+    .polygonsData([...geo.features, ...featuresSubdivisiones])
     .polygonCapMaterial((f) => materialPara(f))
     .polygonSideColor(() => 'rgba(0,0,0,0)')
     .polygonStrokeColor(() => css('--ink'))
-    .polygonAltitude(0.005)
+    .polygonAltitude((f) => (esSubdivision(f) ? ALTITUD_SUBDIVISION : ALTITUD_PAIS))
     .onPolygonClick((f) => {
-      const iso3 = f.properties.iso_a3
-      const nombre = nombres.get(iso3) ?? iso3
-      const info = estado.get(iso3)
-      label.textContent = info
-        ? `${nombre}, ${info.estado}, ${info.viajes} viaje${info.viajes === 1 ? '' : 's'}`
-        : `${nombre}, no visitado`
+      label.textContent = etiquetaPara(f)
     })
 
   // iPhone: densidad ×3 multiplica el coste de render; con 2 sigue nítido y va bastante más fluido.

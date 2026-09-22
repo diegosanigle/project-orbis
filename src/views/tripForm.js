@@ -1,6 +1,8 @@
 // Alta/edición de viaje
 import { supabase } from '../lib/supabase.js'
 
+const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
+
 export async function renderTripForm(container) {
   container.innerHTML = `
     <main>
@@ -9,8 +11,8 @@ export async function renderTripForm(container) {
         <label>País
           <select name="pais_iso" required></select>
         </label>
-        <label>Subdivisión
-          <select name="subdivision_iso"><option value="">—</option></select>
+        <label>Subdivisiones (opcional, se puede elegir varias con Ctrl/Cmd + clic)
+          <select name="subdivisiones" multiple></select>
         </label>
         <label>Lugar <input name="lugar" type="text"></label>
         <label>Fecha inicio <input name="fecha_inicio" type="date" required></label>
@@ -30,46 +32,47 @@ export async function renderTripForm(container) {
 
   const form = container.querySelector('#trip-form')
   const paisSelect = form.querySelector('[name="pais_iso"]')
-  const subdivisionSelect = form.querySelector('[name="subdivision_iso"]')
+  const subdivisionSelect = form.querySelector('[name="subdivisiones"]')
   const submitButton = form.querySelector('button[type="submit"]')
   const cancelButton = form.querySelector('#trip-cancel')
   const error = container.querySelector('#trip-error')
   const list = container.querySelector('#trip-list')
 
-  const paises = await fetch('/data/paises.json').then((r) => r.json())
+  const [paises, ...subdivisionesPorPais] = await Promise.all([
+    fetch('/data/paises.json').then((r) => r.json()),
+    ...PAISES_CON_SUBDIVISION.map((iso2) =>
+      fetch(`/data/subdivisiones/${iso2}.json`).then((r) => r.json())
+    ),
+  ])
   paises.sort((a, b) => a.nombre_es.localeCompare(b.nombre_es, 'es'))
   const nombreByIso3 = new Map(paises.map((p) => [p.iso_a3, p.nombre_es]))
   const iso2ByIso3 = new Map(paises.map((p) => [p.iso_a3, p.iso_a2]))
+
+  // codigo_iso_3166_2 → nombre, y iso_a2 → lista de subdivisiones de ese país.
+  const nombreSubdivision = new Map()
+  const subdivisionesPorIso2 = new Map()
+  PAISES_CON_SUBDIVISION.forEach((iso2, i) => {
+    subdivisionesPorIso2.set(iso2, subdivisionesPorPais[i])
+    for (const s of subdivisionesPorPais[i]) nombreSubdivision.set(s.codigo_iso_3166_2, s.nombre)
+  })
 
   paisSelect.innerHTML = paises
     .map((p) => `<option value="${p.iso_a3}">${p.nombre_es}</option>`)
     .join('')
 
-  const subdivisionCache = new Map()
-  async function loadSubdivisiones(iso3) {
-    const iso2 = iso2ByIso3.get(iso3)
-    if (!iso2) return []
-    if (subdivisionCache.has(iso2)) return subdivisionCache.get(iso2)
-    const list = await fetch(`/data/subdivisiones/${iso2}.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .catch(() => [])
-    subdivisionCache.set(iso2, list)
-    return list
-  }
-
-  async function refreshSubdivisiones(selected = '') {
-    const subdivisiones = await loadSubdivisiones(paisSelect.value)
-    subdivisionSelect.innerHTML =
-      '<option value="">—</option>' +
-      subdivisiones
-        .map((s) => `<option value="${s.codigo_iso_3166_2}">${s.nombre}</option>`)
-        .join('')
+  function refreshSubdivisiones(seleccionadas = []) {
+    const subdivisiones = subdivisionesPorIso2.get(iso2ByIso3.get(paisSelect.value)) ?? []
+    subdivisionSelect.innerHTML = subdivisiones
+      .map((s) => `<option value="${s.codigo_iso_3166_2}">${s.nombre}</option>`)
+      .join('')
     subdivisionSelect.disabled = subdivisiones.length === 0
-    subdivisionSelect.value = selected
+    for (const option of subdivisionSelect.options) {
+      option.selected = seleccionadas.includes(option.value)
+    }
   }
 
   paisSelect.addEventListener('change', () => refreshSubdivisiones())
-  await refreshSubdivisiones()
+  refreshSubdivisiones()
 
   let editingId = null
 
@@ -97,6 +100,7 @@ export async function renderTripForm(container) {
         (trip) => `
       <li data-id="${trip.id}">
         <span>${nombreByIso3.get(trip.pais_iso) ?? trip.pais_iso}</span>
+        <span>${(trip.subdivisiones ?? []).map((c) => nombreSubdivision.get(c) ?? c).join(', ')}</span>
         <span>${trip.lugar ?? ''}</span>
         <span>${trip.fecha_inicio}${trip.fecha_fin ? ' → ' + trip.fecha_fin : ''}</span>
         <span>${trip.tipo}</span>
@@ -112,12 +116,11 @@ export async function renderTripForm(container) {
         const trip = data.find((t) => t.id === id)
         editingId = trip.id
         paisSelect.value = trip.pais_iso
-        refreshSubdivisiones(trip.subdivision_iso ?? '').then(() => {
-          form.lugar.value = trip.lugar ?? ''
-          form.fecha_inicio.value = trip.fecha_inicio
-          form.fecha_fin.value = trip.fecha_fin ?? ''
-          form.tipo.value = trip.tipo
-        })
+        refreshSubdivisiones(trip.subdivisiones ?? [])
+        form.lugar.value = trip.lugar ?? ''
+        form.fecha_inicio.value = trip.fecha_inicio
+        form.fecha_fin.value = trip.fecha_fin ?? ''
+        form.tipo.value = trip.tipo
         submitButton.textContent = 'Guardar cambios'
         cancelButton.hidden = false
       })
@@ -144,9 +147,10 @@ export async function renderTripForm(container) {
     submitButton.disabled = true
 
     const values = Object.fromEntries(new FormData(form))
+    const subdivisiones = [...subdivisionSelect.selectedOptions].map((o) => o.value)
     const payload = {
       pais_iso: values.pais_iso,
-      subdivision_iso: values.subdivision_iso || null,
+      subdivisiones: subdivisiones.length ? subdivisiones : null,
       lugar: values.lugar || null,
       fecha_inicio: values.fecha_inicio,
       fecha_fin: values.fecha_fin || null,
