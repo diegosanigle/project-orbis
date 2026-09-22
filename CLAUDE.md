@@ -52,7 +52,7 @@ bloquea algo concreto, dilo y espera respuesta; no la cambies por tu cuenta.
 No implementes, aunque parezcan fáciles o "naturales":
 
 fotos · wishlist · multiusuario · compartir públicamente · import de Google Timeline ·
-recomendaciones con IA · subdivisiones de países fuera de ES/PT/FR/IT/US
+recomendaciones con IA · subdivisiones de países fuera de ES/PT/FR/IT/US/GB
 
 Si detectas que algo de esto haría falta, **propónlo y espera**. No lo construyas.
 

@@ -43,8 +43,15 @@ Solo para países explícitamente activados. Resto del mundo: sin subdivisiones.
 | Francia | Régions (1er nivel) — confirmado | 13 metropolitanas + ultramar |
 | Italia | Regioni (1er nivel) | 20 |
 | EEUU | Estados (1er nivel) | 50 + DC |
+| Reino Unido | Naciones constituyentes (1er nivel: Inglaterra, Escocia, Gales, Irlanda del Norte) | 4 |
 
 Ampliable país a país en el futuro. No cargar subdivisiones de países no activados.
+
+**Nota de dataset (Reino Unido).** Natural Earth admin-1 no trae directamente las 4
+naciones constituyentes para `GBR`: trae condados/distritos (232 entidades). Se disuelven
+por el campo `gu_a3` de Natural Earth (`ENG`/`SCT`/`WLS`/`NIR`) en
+`scripts/build-subdivisiones.js`, igual que Francia e Italia se disuelven por
+`region_cod`.
 
 ### Escalas de aeropuerto
 

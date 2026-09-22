@@ -1,0 +1,26 @@
+[
+ {
+  "codigo_iso_3166_2": "GB-ENG",
+  "nombre": "Inglaterra",
+  "pais_iso": "GBR",
+  "area_km2": 130207
+ },
+ {
+  "codigo_iso_3166_2": "GB-NIR",
+  "nombre": "Irlanda del Norte",
+  "pais_iso": "GBR",
+  "area_km2": 14220
+ },
+ {
+  "codigo_iso_3166_2": "GB-SCT",
+  "nombre": "Escocia",
+  "pais_iso": "GBR",
+  "area_km2": 78093
+ },
+ {
+  "codigo_iso_3166_2": "GB-WLS",
+  "nombre": "Gales",
+  "pais_iso": "GBR",
+  "area_km2": 20760
+ }
+]

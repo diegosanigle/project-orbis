@@ -1,6 +1,7 @@
-// Genera public/data/subdivisiones/{ES,PT,FR,IT,US}.{geojson,json} (PLAN.md, Fase 2).
+// Genera public/data/subdivisiones/{ES,PT,FR,IT,US,GB}.{geojson,json} (PLAN.md, Fase 2).
 // Uso: node scripts/build-subdivisiones.js   (requiere `npm install`; descarga Natural Earth admin-1 a scripts/.cache)
-// Niveles: ES provincias, PT distritos + Azores/Madeira, FR régions (metropolitanas), IT regioni, US estados + DC.
+// Niveles: ES provincias, PT distritos + Azores/Madeira, FR régions (metropolitanas), IT regioni, US estados + DC,
+// GB naciones constituyentes (Natural Earth solo trae condados/distritos para GBR; se disuelven por `gu_a3`).
 import { execFileSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -20,6 +21,7 @@ const PAISES = {
   FR: { adm0: 'FRA', simplify: '8%', region: true },
   IT: { adm0: 'ITA', simplify: '8%', region: true },
   US: { adm0: 'USA', simplify: '4%' },
+  GB: { adm0: 'GBR', simplify: '4%', region: true, dissolveField: 'gu_a3' },
 }
 
 // Nombres oficiales actuales (Natural Earth usa las formas castellanizadas antiguas).
@@ -39,6 +41,9 @@ const REGIONES = {
     'IT-36': 'Friuli-Venecia Julia', 'IT-42': 'Liguria', 'IT-45': 'Emilia-Romaña', 'IT-52': 'Toscana', 'IT-55': 'Umbría',
     'IT-57': 'Marcas', 'IT-62': 'Lacio', 'IT-65': 'Abruzos', 'IT-67': 'Molise', 'IT-72': 'Campania', 'IT-75': 'Apulia',
     'IT-77': 'Basilicata', 'IT-78': 'Calabria', 'IT-82': 'Sicilia', 'IT-88': 'Cerdeña',
+  },
+  GB: {
+    'GB-ENG': 'Inglaterra', 'GB-SCT': 'Escocia', 'GB-WLS': 'Gales', 'GB-NIR': 'Irlanda del Norte',
   },
 }
 
@@ -65,7 +70,12 @@ for (const [pais, cfg] of Object.entries(PAISES)) {
     let codigo = p.iso_3166_2.trim()
     let nombre = p.name_es || p.name
     if (cfg.region) {
-      codigo = (p.region_cod ?? '').trim().replace(/^FR-GUF|^FR-MTQ|^FR-GUA|^FR-LRE|^FR-MAY/, '')
+      if (cfg.dissolveField) {
+        const raw = (p[cfg.dissolveField] ?? '').trim()
+        codigo = raw ? `GB-${raw}` : ''
+      } else {
+        codigo = (p.region_cod ?? '').trim().replace(/^FR-GUF|^FR-MTQ|^FR-GUA|^FR-LRE|^FR-MAY/, '')
+      }
       if (!codigo) continue // ultramar francés: ya son países propios en paises.json
       nombre = tabla[codigo]
       if (!nombre) throw new Error(`${pais}: región sin mapear ${codigo}`)
