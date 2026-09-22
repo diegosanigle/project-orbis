@@ -12,6 +12,7 @@ const cache = join(root, 'scripts/.cache')
 const out = join(root, 'public/data/subdivisiones')
 const mapshaper = join(root, 'node_modules/.bin/mapshaper')
 const SRC = 'ne_10m_admin_1.geojson'
+const BUFFER_KM = 20 // ver comentario junto a -buffer más abajo
 const URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson'
 
 // Natural Earth trae provincias en ES/PT, departamentos en FR y provincias en IT: FR e IT se disuelven a región.
@@ -87,8 +88,18 @@ for (const [pais, cfg] of Object.entries(PAISES)) {
   writeFileSync(tmp, JSON.stringify({ type: 'FeatureCollection', features }))
   const args = [tmp]
   if (cfg.region) args.push('-dissolve', 'codigo_iso_3166_2', 'copy-fields=nombre')
-  args.push('-each', 'area_km2=Math.round($.area/1e6)', '-simplify', cfg.simplify, 'keep-shapes',
-    '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force')
+  args.push(
+    '-each', 'area_km2=Math.round($.area/1e6)', '-simplify', cfg.simplify, 'keep-shapes',
+    // paises.geojson se suaviza aparte (build-paises.js) con un Chaikin que preserva los
+    // nodos compartidos entre países; este fichero no tiene ese tratamiento ni conoce a
+    // los vecinos, así que su borde exterior no encaja exacto con el de paises.geojson
+    // (deja un hueco fino y dentado en el globo). BUFFER_KM ensancha solo el borde no
+    // compartido entre provincias (`topological`, no engorda las fronteras internas) lo
+    // justo para tapar ese hueco sin que se note a ojo. area_km2 ya se calculó arriba,
+    // así que esto no afecta al dato de superficie, solo al polígono que se dibuja.
+    '-buffer', `radius=${BUFFER_KM * 1000}`, 'geodesic', 'topological',
+    '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force'
+  )
   execFileSync(mapshaper, args, { stdio: ['ignore', 'ignore', 'inherit'] })
 
   const res = JSON.parse(readFileSync(join(out, `${pais}.geojson`), 'utf8'))
