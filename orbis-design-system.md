@@ -253,7 +253,7 @@ Anclada abajo, radio superior 28px, grip 36×4px. Fondo `--surface`. Backdrop `r
 
 ### 6.10 Navegación inferior
 
-**Tres ítems** (globo · mapa/lista · perfil), como en la maqueta. Fondo `--bg` sin línea divisoria. Activo `--ink` con indicador de 2px debajo; inactivo `--ink-3`. `scale(.92)` al presionar.
+**Hasta cinco ítems** (decisión 2026-10-19; la maqueta traía tres): globo · lista · timeline · estadísticas · viajes. Más de cinco no cabe con hit target ≥44px en móvil. Fondo `--bg` sin línea divisoria. Activo `--ink` con indicador de 2px debajo; inactivo `--ink-3`. `scale(.92)` al presionar.
 
 ---
 
