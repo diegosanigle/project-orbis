@@ -60,61 +60,10 @@ describe('calcularStats', () => {
     expect(s.paisesTransitados).toBe(0)
   })
 
-  describe('subdivisiones', () => {
-    const subdivisiones = [
-      { codigo_iso_3166_2: 'ES-A', pais_iso: 'ESP', area_km2: 6000 },
-      { codigo_iso_3166_2: 'ES-M', pais_iso: 'ESP', area_km2: 8000 },
-      { codigo_iso_3166_2: 'ES-S', pais_iso: 'ESP', area_km2: 5000 },
-    ]
-
-    it('un viaje a una subdivisión cuenta el país en países, pero solo el área de la subdivisión', () => {
-      const s = calcularStats([{ pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-S'] }], paises, subdivisiones)
-      expect(s.paisesVisitados).toBe(1)
-      expect(s.porcentajePaises).toBe(25)
-      expect(s.areaVisitadaKm2).toBe(5000)
-      expect(s.porcentajeSuperficie).toBeCloseTo((5000 / 11000000) * 100, 8)
-    })
-
-    it('varias subdivisiones en un viaje, o repartidas en varios, suman cada una una sola vez', () => {
-      const s = calcularStats(
-        [
-          { pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-A', 'ES-M'] },
-          { pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-M', 'ES-S'] },
-        ],
-        paises,
-        subdivisiones
-      )
-      expect(s.areaVisitadaKm2).toBe(19000)
-    })
-
-    it('un viaje sin subdivisión al mismo país cuenta el país entero', () => {
-      const s = calcularStats(
-        [
-          { pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-S'] },
-          { pais_iso: 'ESP', tipo: 'visita', subdivisiones: null },
-        ],
-        paises,
-        subdivisiones
-      )
-      expect(s.areaVisitadaKm2).toBe(500000)
-    })
-
-    it('una escala en una subdivisión no suma superficie', () => {
-      const s = calcularStats([{ pais_iso: 'ESP', tipo: 'escala', subdivisiones: ['ES-S'] }], paises, subdivisiones)
-      expect(s.areaVisitadaKm2).toBe(0)
-      expect(s.paisesTransitados).toBe(1)
-    })
-
-    it('las subdivisiones nunca suman más que el área del país', () => {
-      const grandes = [{ codigo_iso_3166_2: 'ES-A', pais_iso: 'ESP', area_km2: 900000 }]
-      const s = calcularStats([{ pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-A'] }], paises, grandes)
-      expect(s.areaVisitadaKm2).toBe(500000)
-    })
-
-    it('sin áreas de subdivisión conocidas, cuenta el país entero', () => {
-      const s = calcularStats([{ pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-S'] }], paises)
-      expect(s.areaVisitadaKm2).toBe(500000)
-    })
+  it('un viaje a una subdivisión cuenta el país entero', () => {
+    const s = calcularStats([{ pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-S'] }], paises)
+    expect(s.paisesVisitados).toBe(1)
+    expect(s.areaVisitadaKm2).toBe(500000)
   })
 
   it('ignora un viaje a un código que no está en la lista', () => {

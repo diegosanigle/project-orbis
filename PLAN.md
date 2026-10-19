@@ -28,12 +28,9 @@ optimizar **simplicidad y mantenibilidad**, no escalabilidad ni extensibilidad e
 | **Nº de países** | Contador absoluto |
 
 - Un país cuenta como visitado si existe ≥1 viaje de tipo `visita` en él.
-- El modelo es **binario a nivel país para el recuento de países**: haber estado en una
-  sola provincia de España cuenta España como 1 país visitado (nº y % de países).
-- La **superficie** sí tiene en cuenta las subdivisiones: un viaje que lista subdivisiones
-  suma solo el área de esas subdivisiones (acotada al área del país); un viaje sin
-  subdivisión suma el país entero, y ese gana si coexiste con viajes a subdivisiones.
-  Decisión posterior al plan original, que contaba el país entero también en superficie.
+- El modelo es **binario a nivel país**: haber estado en una sola provincia de España
+  marca España como visitada al 100% para el cómputo mundial. Las subdivisiones son una
+  capa de detalle adicional, no afectan al % global.
 
 ### Subdivisiones
 
@@ -314,8 +311,7 @@ espaciado, componentes, accesibilidad). Esta fase lo aplica; no lo reabre.
 - Mismo país visitado varias veces → cuenta una sola vez.
 - País con escala y además visita → prevalece `visita`.
 - Viaje sin `fecha_fin` (viaje de un día o en curso).
-- Viaje a subdivisión de un país sin registro a nivel país → el país debe contar igualmente
-  en el recuento de países, pero en superficie solo suma esa subdivisión.
+- Viaje a subdivisión de un país sin registro a nivel país → el país debe contar igualmente.
 - Territorio con código ISO propio (ej. `GRL`, `HKG`) visitado: cuenta como una entrada
   más del /249 y suma su área real, sin alterar el estado de su país soberano (`DNK`,
   `CHN`) — son entidades independientes, no debería ni poder cruzarse el dato.
