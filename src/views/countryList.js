@@ -13,7 +13,7 @@ const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
 
 const plural = (n) => `${n} viaje${n === 1 ? '' : 's'}`
 
-export async function renderCountryList(container) {
+export async function renderCountryList(container, { onSelect }) {
   container.innerHTML = `
     <main id="country-list">
       <h1>Países</h1>
@@ -66,6 +66,7 @@ export async function renderCountryList(container) {
         return `<li tabindex="0" data-estado="${f.estado}">
           <span aria-hidden="true">${banderaEmoji(f.iso_a2)}</span>
           <strong>${f.nombre_es}</strong>
+          <button type="button" data-iso="${f.iso_a3}" aria-label="Ver ficha de ${f.nombre_es}">Ver ficha</button>
           <span>${f.estado}${f.viajes ? `, ${plural(f.viajes)}` : ''}</span>
           ${subs ? `<small>Subdivisiones: ${subs}</small>` : ''}
         </li>`
@@ -73,6 +74,10 @@ export async function renderCountryList(container) {
       .join('')
   }
 
+  rows.addEventListener('click', (e) => {
+    const boton = e.target.closest('button[data-iso]')
+    if (boton) onSelect(boton.dataset.iso)
+  })
   search.addEventListener('input', pintar)
   container.querySelectorAll('input[name="estado"]').forEach((r) => r.addEventListener('change', pintar))
   pintar()

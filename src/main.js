@@ -3,6 +3,7 @@ import { renderLogin } from './views/login.js'
 import { renderGlobe } from './views/globe.js'
 import { renderTripForm } from './views/tripForm.js'
 import { renderCountryList } from './views/countryList.js'
+import { renderCountryDetail } from './views/countryDetail.js'
 import { renderTimeline } from './views/timeline.js'
 import { renderNavBar } from './components/navBar.js'
 
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
 ]
 
 let currentView = 'globo'
+let selectedCountry = null // iso_a3 de la ficha abierta desde la lista
 
 function renderView() {
   app.innerHTML = `<div id="nav"></div><div id="content"></div><button id="logout">Cerrar sesión</button>`
@@ -23,7 +25,7 @@ function renderView() {
 
   renderNavBar(app.querySelector('#nav'), {
     items: NAV_ITEMS,
-    active: currentView,
+    active: currentView === 'pais' ? 'lista' : currentView,
     onNavigate: (id) => {
       currentView = id
       renderView()
@@ -33,7 +35,22 @@ function renderView() {
   const content = app.querySelector('#content')
   if (currentView === 'viajes') renderTripForm(content)
   else if (currentView === 'timeline') renderTimeline(content)
-  else if (currentView === 'lista') renderCountryList(content)
+  else if (currentView === 'pais') {
+    renderCountryDetail(content, selectedCountry, {
+      onBack: () => {
+        currentView = 'lista'
+        renderView()
+      },
+    })
+  } else if (currentView === 'lista') {
+    renderCountryList(content, {
+      onSelect: (iso) => {
+        selectedCountry = iso
+        currentView = 'pais'
+        renderView()
+      },
+    })
+  }
   else renderGlobe(content)
 }
 
