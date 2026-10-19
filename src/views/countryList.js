@@ -13,17 +13,18 @@ const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
 
 const plural = (n) => `${n} viaje${n === 1 ? '' : 's'}`
 
-export async function renderCountryList(container, { onSelect }) {
+// `filtros` ({ estado, texto }) lo posee quien llama: así sobreviven a abrir una ficha y volver.
+export async function renderCountryList(container, { onSelect, filtros }) {
   container.innerHTML = `
     <main id="country-list">
       <h1>Países</h1>
       <p id="country-count" aria-live="polite">Cargando…</p>
-      <label>Buscar <input id="country-search" type="search" autocomplete="off"></label>
+      <label>Buscar <input id="country-search" type="search" autocomplete="off" value="${filtros.texto.replace(/"/g, '&quot;')}"></label>
       <fieldset>
         <legend>Estado</legend>
         ${ESTADOS.map(
-          (e, i) =>
-            `<label><input type="radio" name="estado" value="${e.id}" ${i === 0 ? 'checked' : ''}> ${e.label}</label>`
+          (e) =>
+            `<label><input type="radio" name="estado" value="${e.id}" ${e.id === filtros.estado ? 'checked' : ''}> ${e.label}</label>`
         ).join('')}
       </fieldset>
       <ul id="country-rows" aria-label="Países"></ul>
@@ -54,7 +55,9 @@ export async function renderCountryList(container, { onSelect }) {
 
   function pintar() {
     const estado = container.querySelector('input[name="estado"]:checked').value
-    const visibles = filtrarFilas(filas, { estado, texto: search.value })
+    filtros.estado = estado
+    filtros.texto = search.value
+    const visibles = filtrarFilas(filas, filtros)
     count.textContent = `${visibles.length} de ${filas.length} países · ${visitados} visitados`
     // Cada fila es un <li> con texto: el estado va en palabras, no solo en color/trama.
     // Tabulable (tabindex) para recorrer la lista con teclado y que el lector lea la fila.

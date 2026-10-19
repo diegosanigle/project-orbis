@@ -17,7 +17,16 @@ const NAV_ITEMS = [
 ]
 
 let currentView = 'globo'
-let selectedCountry = null // iso_a3 de la ficha abierta desde la lista
+let selectedCountry = null // iso_a3 de la ficha abierta
+let fichaOrigen = 'lista' // vista a la que vuelve la ficha: 'lista' o 'globo'
+const filtrosLista = { estado: 'todos', texto: '' } // sobreviven a abrir una ficha y volver
+
+function abrirFicha(iso, origen) {
+  selectedCountry = iso
+  fichaOrigen = origen
+  currentView = 'pais'
+  renderView()
+}
 
 function renderView() {
   app.innerHTML = `<div id="nav"></div><div id="content"></div><button id="logout">Cerrar sesión</button>`
@@ -25,7 +34,7 @@ function renderView() {
 
   renderNavBar(app.querySelector('#nav'), {
     items: NAV_ITEMS,
-    active: currentView === 'pais' ? 'lista' : currentView,
+    active: currentView === 'pais' ? fichaOrigen : currentView,
     onNavigate: (id) => {
       currentView = id
       renderView()
@@ -37,21 +46,18 @@ function renderView() {
   else if (currentView === 'timeline') renderTimeline(content)
   else if (currentView === 'pais') {
     renderCountryDetail(content, selectedCountry, {
+      textoVolver: fichaOrigen === 'globo' ? '← Globo' : '← Lista',
       onBack: () => {
-        currentView = 'lista'
+        currentView = fichaOrigen
         renderView()
       },
     })
   } else if (currentView === 'lista') {
     renderCountryList(content, {
-      onSelect: (iso) => {
-        selectedCountry = iso
-        currentView = 'pais'
-        renderView()
-      },
+      filtros: filtrosLista,
+      onSelect: (iso) => abrirFicha(iso, 'lista'),
     })
-  }
-  else renderGlobe(content)
+  } else renderGlobe(content, { onSelect: (iso) => abrirFicha(iso, 'globo') })
 }
 
 // Guard: sin sesión solo se ve el login. onAuthStateChange dispara también al cargar (INITIAL_SESSION).

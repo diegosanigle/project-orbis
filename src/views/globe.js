@@ -31,10 +31,11 @@ function crearCanvasEscala() {
   return canvas
 }
 
-export async function renderGlobe(container) {
+export async function renderGlobe(container, { onSelect }) {
   container.innerHTML = `
     <div id="globe"></div>
     <p id="globe-label" aria-live="polite">Cargando globo…</p>
+    <button type="button" id="globe-detail" hidden>Ver ficha</button>
     <ul id="globe-legend">
       <li><span class="swatch" data-estado="no-visitado"></span> No visitado</li>
       <li><span class="swatch" data-estado="escala"></span> Escala</li>
@@ -42,6 +43,9 @@ export async function renderGlobe(container) {
     </ul>`
   const el = container.querySelector('#globe')
   const label = container.querySelector('#globe-label')
+  const detailButton = container.querySelector('#globe-detail')
+  let isoSeleccionado = null
+  detailButton.addEventListener('click', () => onSelect(isoSeleccionado))
 
   const [paises, geo, { data: viajesData, error: viajesError }, ...subdivisionesPorPais] = await Promise.all([
     fetch('/data/paises.json').then((r) => r.json()),
@@ -151,6 +155,8 @@ export async function renderGlobe(container) {
     .polygonAltitude(ALTITUD)
     .onPolygonClick((f) => {
       label.textContent = etiquetaPara(f)
+      isoSeleccionado = f.properties.iso_a3
+      detailButton.hidden = false
     })
 
   // iPhone: densidad ×3 multiplica el coste de render; con 2 sigue nítido y va bastante más fluido.

@@ -6,10 +6,10 @@ import { viajesDelTimeline } from '../lib/timeline.js'
 
 const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
 
-export async function renderCountryDetail(container, isoA3, { onBack }) {
+export async function renderCountryDetail(container, isoA3, { onBack, textoVolver = '← Volver' }) {
   container.innerHTML = `
     <main id="country-detail">
-      <button type="button" id="detail-back">← Lista</button>
+      <button type="button" id="detail-back">${textoVolver}</button>
       <h1 id="detail-title">Cargando…</h1>
       <p id="detail-error" role="alert"></p>
       <div id="detail-body"></div>
