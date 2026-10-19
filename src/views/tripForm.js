@@ -1,5 +1,6 @@
 // Alta/edición de viaje
 import { supabase } from '../lib/supabase.js'
+import { renderMarkdown } from '../lib/markdown.js'
 
 const PAISES_CON_SUBDIVISION = ['ES', 'PT', 'FR', 'IT', 'US', 'GB']
 
@@ -23,6 +24,10 @@ export async function renderTripForm(container) {
             <option value="escala">Escala</option>
           </select>
         </label>
+        <label>Notas (Markdown)
+          <textarea name="notas" rows="6"></textarea>
+        </label>
+        <div id="notas-preview" aria-label="Vista previa de las notas"></div>
         <button type="submit">Guardar</button>
         <button type="button" id="trip-cancel" hidden>Cancelar edición</button>
         <p id="trip-error" role="alert"></p>
@@ -37,6 +42,12 @@ export async function renderTripForm(container) {
   const cancelButton = form.querySelector('#trip-cancel')
   const error = container.querySelector('#trip-error')
   const list = container.querySelector('#trip-list')
+  const notasPreview = container.querySelector('#notas-preview')
+
+  const pintarPreview = () => {
+    notasPreview.innerHTML = renderMarkdown(form.notas.value)
+  }
+  form.notas.addEventListener('input', pintarPreview)
 
   const [paises, ...subdivisionesPorPais] = await Promise.all([
     fetch('/data/paises.json').then((r) => r.json()),
@@ -79,6 +90,7 @@ export async function renderTripForm(container) {
   function resetForm() {
     editingId = null
     form.reset()
+    pintarPreview()
     refreshSubdivisiones()
     submitButton.textContent = 'Guardar'
     cancelButton.hidden = true
@@ -121,6 +133,8 @@ export async function renderTripForm(container) {
         form.fecha_inicio.value = trip.fecha_inicio
         form.fecha_fin.value = trip.fecha_fin ?? ''
         form.tipo.value = trip.tipo
+        form.notas.value = trip.notas ?? ''
+        pintarPreview()
         submitButton.textContent = 'Guardar cambios'
         cancelButton.hidden = false
       })
@@ -155,6 +169,7 @@ export async function renderTripForm(container) {
       fecha_inicio: values.fecha_inicio,
       fecha_fin: values.fecha_fin || null,
       tipo: values.tipo,
+      notas: values.notas || null,
     }
 
     const { error: writeError } = editingId
