@@ -13,7 +13,7 @@ const cache = join(root, 'scripts/.cache')
 const out = join(root, 'public/data/subdivisiones')
 const mapshaper = join(root, 'node_modules/.bin/mapshaper')
 const SRC = 'ne_10m_admin_1.geojson'
-const BUFFER_KM = 20 // ver comentario junto a -buffer más abajo
+const BUFFER_KM = 20 // holgado a propósito: el -clip posterior recorta el exceso (ver más abajo)
 // Mismo pipeline de suavizado que paises.geojson (build-paises.js): sin él, las
 // provincias quedan angulosas (Natural Earth admin-1 simplificado sin Chaikin) al lado
 // de costas redondeadas del resto del globo — se nota especialmente en países pequeños
@@ -110,21 +110,46 @@ for (const [pais, cfg] of Object.entries(PAISES)) {
   const suavizado = join(cache, `sub_${pais}_suavizado.geojson`)
   writeFileSync(suavizado, JSON.stringify(suavizar(JSON.parse(readFileSync(simplificado, 'utf8')), ITERACIONES_SUAVIZADO)))
 
+  // El contorno exterior sale de paises.geojson (requiere haber ejecutado build-paises.js
+  // antes): esos polígonos comparten borde exacto con los países vecinos, algo que este
+  // fichero, generado aparte desde Natural Earth admin-1, no puede garantizar por sí solo.
+  const contorno = join(cache, `contorno_${pais}.geojson`)
+  const paisesGeo = JSON.parse(readFileSync(join(root, 'public/data/paises.geojson'), 'utf8'))
+  const fPais = paisesGeo.features.find((f) => f.properties.iso_a3 === cfg.adm0)
+  writeFileSync(contorno, JSON.stringify({ type: 'FeatureCollection', features: [fPais] }))
+
+  const ensanchado = join(cache, `sub_${pais}_ensanchado.geojson`)
+  // 1) -buffer ensancha el borde exterior no compartido entre provincias (`topological`:
+  //    no engorda las fronteras internas) lo bastante para cubrir cualquier hueco respecto
+  //    al contorno de paises.geojson, aunque se pase por fuera.
   execFileSync(
     mapshaper,
     [
       suavizado, '-simplify', ALIGERAR, 'weighting=1', 'keep-shapes',
-      // paises.geojson se suaviza con un Chaikin que preserva los nodos compartidos
-      // entre países; este fichero no conoce a los vecinos de fuera del propio país, así
-      // que su borde exterior no encaja exacto con el de paises.geojson (deja un hueco
-      // fino en el globo). BUFFER_KM ensancha solo el borde no compartido entre
-      // provincias (`topological`, no engorda las fronteras internas) lo justo para
-      // taparlo sin que se note a ojo.
       '-buffer', `radius=${BUFFER_KM * 1000}`, 'geodesic', 'topological',
-      '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force',
+      '-o', ensanchado, 'format=geojson', 'precision=0.01', 'force',
     ],
     { stdio: ['ignore', 'ignore', 'inherit'] }
   )
+  // 2) -clip recorta lo que sobresale con el contorno exacto del país. Por sí solo no sirve
+  //    (solo quita lo que sobra, no rellena huecos) ni tampoco un buffer sin recorte (con
+  //    radio grande se cruza con el vecino): juntos, la unión de las provincias coincide
+  //    con el país de paises.geojson.
+  execFileSync(
+    mapshaper,
+    [ensanchado, '-clip', `source=${contorno}`, '-o', join(out, `${pais}.geojson`), 'format=geojson', 'precision=0.01', 'force'],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  )
+  // paises.geojson no lleva las islas pequeñas (MIN_ISLA_KM2 en build-paises.js) ni
+  // territorios aparte como Canarias, así que el recorte elimina del todo las provincias
+  // que quedan fuera de él. Se recuperan sin recortar: no tocan a ningún vecino y deben
+  // seguir existiendo para poder elegirse en el formulario.
+  const recortado = JSON.parse(readFileSync(join(out, `${pais}.geojson`), 'utf8'))
+  const presentes = new Set(recortado.features.map((f) => f.properties.codigo_iso_3166_2))
+  for (const f of JSON.parse(readFileSync(ensanchado, 'utf8')).features) {
+    if (!presentes.has(f.properties.codigo_iso_3166_2)) recortado.features.push(f)
+  }
+  writeFileSync(join(out, `${pais}.geojson`), JSON.stringify(recortado))
 
   const res = JSON.parse(readFileSync(join(out, `${pais}.geojson`), 'utf8'))
   const lista = res.features
