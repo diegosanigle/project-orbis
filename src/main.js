@@ -2,12 +2,14 @@ import { supabase } from './lib/supabase.js'
 import { renderLogin } from './views/login.js'
 import { renderGlobe } from './views/globe.js'
 import { renderTripForm } from './views/tripForm.js'
+import { renderCountryList } from './views/countryList.js'
 import { renderNavBar } from './components/navBar.js'
 
 const app = document.getElementById('app')
 
 const NAV_ITEMS = [
   { id: 'globo', label: 'Globo' },
+  { id: 'lista', label: 'Lista' },
   { id: 'viajes', label: 'Viajes' },
 ]
 
@@ -28,6 +30,7 @@ function renderView() {
 
   const content = app.querySelector('#content')
   if (currentView === 'viajes') renderTripForm(content)
+  else if (currentView === 'lista') renderCountryList(content)
   else renderGlobe(content)
 }
 

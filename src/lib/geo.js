@@ -82,3 +82,36 @@ export function normalizarBobinado(geometry) {
   }
   return { ...geometry, coordinates: geometry.coordinates.map((poligono) => poligono.map(normalizarAnillo)) }
 }
+
+// Bandera como emoji a partir del ISO alfa-2 (indicadores regionales). Algunas entradas
+// de ISO 3166 no tienen bandera dibujable; la fila nunca depende de ella (design system §6.3).
+export function banderaEmoji(iso2) {
+  if (!/^[A-Z]{2}$/.test(iso2 ?? '')) return ''
+  return String.fromCodePoint(...[...iso2].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65))
+}
+
+// Una fila por país (los 249 de paises.json) con su estado derivado de los viajes.
+// `estado` es 'visitado' | 'escala' | 'no visitado'. Un país con viajes solo a
+// subdivisiones también cuenta: estadoPorPais mira pais_iso, no `subdivisiones`.
+export function filasPaises(paises, viajes) {
+  const estado = estadoPorPais(viajes)
+  return paises
+    .map((p) => {
+      const info = estado.get(p.iso_a3)
+      return {
+        ...p,
+        estado: info?.estado ?? 'no visitado',
+        viajes: info?.viajes ?? 0,
+        subdivisiones: [...estadoPorSubdivision(viajes.filter((v) => v.pais_iso === p.iso_a3)).entries()]
+          .map(([codigo, s]) => ({ codigo, ...s })),
+      }
+    })
+    .sort((a, b) => a.nombre_es.localeCompare(b.nombre_es, 'es'))
+}
+
+// Filtro de la lista: `estado` ('todos' o uno de los tres) y `texto` (sin tildes ni mayúsculas).
+export function filtrarFilas(filas, { estado = 'todos', texto = '' } = {}) {
+  const norm = (s) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+  const q = norm(texto.trim())
+  return filas.filter((f) => (estado === 'todos' || f.estado === estado) && norm(f.nombre_es).includes(q))
+}

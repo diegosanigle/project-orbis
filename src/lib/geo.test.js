@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { bboxGrados, estadoPorPais, estadoPorSubdivision, normalizarBobinado } from './geo.js'
+import { banderaEmoji, bboxGrados, estadoPorPais, estadoPorSubdivision, filasPaises, filtrarFilas, normalizarBobinado } from './geo.js'
 
 describe('estadoPorPais', () => {
   it('marca visitado con un solo viaje de tipo visita', () => {
@@ -116,5 +116,43 @@ describe('bboxGrados', () => {
       ],
     }
     expect(bboxGrados(geometry)).toEqual({ anchoLng: 12, altoLat: 12 })
+  })
+})
+
+describe('banderaEmoji', () => {
+  it('convierte ISO alfa-2 en emoji de bandera', () => {
+    expect(banderaEmoji('ES')).toBe('🇪🇸')
+  })
+  it('devuelve vacío si el código no es válido', () => {
+    expect(banderaEmoji(undefined)).toBe('')
+    expect(banderaEmoji('xx')).toBe('')
+  })
+})
+
+describe('filasPaises / filtrarFilas', () => {
+  const paises = [
+    { iso_a3: 'ESP', iso_a2: 'ES', nombre_es: 'España' },
+    { iso_a3: 'FRA', iso_a2: 'FR', nombre_es: 'Francia' },
+    { iso_a3: 'ALB', iso_a2: 'AL', nombre_es: 'Albania' },
+  ]
+  const viajes = [
+    { pais_iso: 'ESP', tipo: 'visita', subdivisiones: ['ES-M'] },
+    { pais_iso: 'FRA', tipo: 'escala', subdivisiones: [] },
+  ]
+  const filas = filasPaises(paises, viajes)
+
+  it('devuelve todos los países ordenados por nombre con su estado', () => {
+    expect(filas.map((f) => [f.nombre_es, f.estado])).toEqual([
+      ['Albania', 'no visitado'],
+      ['España', 'visitado'],
+      ['Francia', 'escala'],
+    ])
+  })
+  it('incluye las subdivisiones visitadas del país', () => {
+    expect(filas.find((f) => f.iso_a3 === 'ESP').subdivisiones).toEqual([{ codigo: 'ES-M', estado: 'visitado', viajes: 1 }])
+  })
+  it('filtra por estado y por texto ignorando tildes y mayúsculas', () => {
+    expect(filtrarFilas(filas, { estado: 'escala' }).map((f) => f.iso_a3)).toEqual(['FRA'])
+    expect(filtrarFilas(filas, { texto: 'ESPANA' }).map((f) => f.iso_a3)).toEqual(['ESP'])
   })
 })
