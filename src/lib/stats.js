@@ -34,3 +34,24 @@ export function calcularStats(viajes, paises) {
     porContinente: [...continentes.values()].sort((a, b) => a.continente.localeCompare(b.continente, 'es')),
   }
 }
+
+// Países por nº de viajes de tipo visita, de más a menos (empate: orden alfabético del
+// código ISO, para que el resultado sea determinista). Las escalas no cuentan: son tránsito.
+export function paisesMasRepetidos(viajes) {
+  const cuenta = new Map()
+  for (const v of viajes) if (v.tipo === 'visita') cuenta.set(v.pais_iso, (cuenta.get(v.pais_iso) ?? 0) + 1)
+  return [...cuenta.entries()]
+    .map(([pais_iso, viajes]) => ({ pais_iso, viajes }))
+    .sort((a, b) => b.viajes - a.viajes || a.pais_iso.localeCompare(b.pais_iso))
+}
+
+// Viajes de tipo visita por año de `fecha_inicio`, del más reciente al más antiguo.
+export function viajesPorAnio(viajes) {
+  const cuenta = new Map()
+  for (const v of viajes) {
+    if (v.tipo !== 'visita') continue
+    const anio = Number(v.fecha_inicio.slice(0, 4))
+    cuenta.set(anio, (cuenta.get(anio) ?? 0) + 1)
+  }
+  return [...cuenta.entries()].map(([anio, viajes]) => ({ anio, viajes })).sort((a, b) => b.anio - a.anio)
+}

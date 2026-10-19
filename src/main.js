@@ -4,6 +4,7 @@ import { renderGlobe } from './views/globe.js'
 import { renderTripForm } from './views/tripForm.js'
 import { renderCountryList } from './views/countryList.js'
 import { renderCountryDetail } from './views/countryDetail.js'
+import { renderDashboard } from './views/dashboard.js'
 import { renderTimeline } from './views/timeline.js'
 import { renderNavBar } from './components/navBar.js'
 
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
   { id: 'globo', label: 'Globo' },
   { id: 'lista', label: 'Lista' },
   { id: 'timeline', label: 'Timeline' },
+  { id: 'stats', label: 'Estadísticas' },
   { id: 'viajes', label: 'Viajes' },
 ]
 
@@ -43,6 +45,7 @@ function renderView() {
 
   const content = app.querySelector('#content')
   if (currentView === 'viajes') renderTripForm(content)
+  else if (currentView === 'stats') renderDashboard(content)
   else if (currentView === 'timeline') renderTimeline(content)
   else if (currentView === 'pais') {
     renderCountryDetail(content, selectedCountry, {

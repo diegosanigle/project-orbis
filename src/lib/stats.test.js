@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { calcularStats } from './stats.js'
+import { calcularStats, paisesMasRepetidos, viajesPorAnio } from './stats.js'
 
 // Fixture pequeña con cifras redondas para poder verificar los resultados a mano.
 // Superficie total: 500.000 + 500.000 + 9.000.000 + 1.000.000 = 11.000.000 km².
@@ -92,5 +92,39 @@ describe('calcularStats', () => {
     const s = calcularStats(todos, paises)
     expect(s.porcentajePaises).toBe(100)
     expect(s.porcentajeSuperficie).toBe(100)
+  })
+})
+
+describe('paisesMasRepetidos / viajesPorAnio', () => {
+  const viajes = [
+    { pais_iso: 'ESP', tipo: 'visita', fecha_inicio: '2023-05-01' },
+    { pais_iso: 'ESP', tipo: 'visita', fecha_inicio: '2024-06-01' },
+    { pais_iso: 'FRA', tipo: 'visita', fecha_inicio: '2024-07-01' },
+    { pais_iso: 'FRA', tipo: 'escala', fecha_inicio: '2024-08-01' },
+    { pais_iso: 'ITA', tipo: 'escala', fecha_inicio: '2022-01-01' },
+  ]
+  it('ordena países por visitas e ignora las escalas', () => {
+    expect(paisesMasRepetidos(viajes)).toEqual([
+      { pais_iso: 'ESP', viajes: 2 },
+      { pais_iso: 'FRA', viajes: 1 },
+    ])
+  })
+  it('desempata por código ISO', () => {
+    expect(
+      paisesMasRepetidos([
+        { pais_iso: 'FRA', tipo: 'visita' },
+        { pais_iso: 'ESP', tipo: 'visita' },
+      ]).map((p) => p.pais_iso)
+    ).toEqual(['ESP', 'FRA'])
+  })
+  it('cuenta visitas por año, del más reciente al más antiguo', () => {
+    expect(viajesPorAnio(viajes)).toEqual([
+      { anio: 2024, viajes: 2 },
+      { anio: 2023, viajes: 1 },
+    ])
+  })
+  it('sin viajes devuelve vacío', () => {
+    expect(paisesMasRepetidos([])).toEqual([])
+    expect(viajesPorAnio([])).toEqual([])
   })
 })
