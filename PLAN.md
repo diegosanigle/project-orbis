@@ -245,6 +245,9 @@ Cada punto = una tarea de Claude Code con commit al final.
    continente. Probar con los casos límite de la sección 7.
 6. **Drill-down de subdivisiones.** Click en ES/PT/FR/IT/US → carga **perezosa** del
    GeoJSON de ese país y render de sus polígonos. Nunca cargar los cinco a la vez.
+   **Resuelto por 5.4 con otra solución (decisión 2026-10-19):** el globo carga y pinta
+   siempre las seis subdivisiones (~200 KB en total) porque apilar país + subdivisión dejaba
+   costuras. No hay carga perezosa; la lista (5.8) sí carga perezosamente sus nombres.
 7. **Editor de notas Markdown.** Textarea + preview. Sanitizar con DOMPurify **antes** de
    insertar en el DOM.
 8. **Vista de lista de países.** Equivalente funcional al globo: los 249 países con su estado
